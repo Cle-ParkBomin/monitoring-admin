@@ -38,7 +38,7 @@ export default function TabView() {
             valueList={valueList}
             onClick={(item: TabType) => setValue(item)}
           />
-          <SegmentControl valueList={valueList} isDisabled />
+          <SegmentControl value={value} valueList={valueList} isDisabled />
         </div>
         <div className='flex flex-1 gap-4'>
           <SegmentControl
@@ -47,7 +47,7 @@ export default function TabView() {
             onClick={(item: TabType) => setValue(item)}
             isIcon
           />
-          <SegmentControl valueList={valueList} isIcon isDisabled />
+          <SegmentControl value={value} valueList={valueList} isIcon isDisabled />
         </div>
         <div className='flex flex-1 gap-4'>
           <Tab value={value} valueList={valueList} onClick={(item: TabType) => setValue(item)} />
