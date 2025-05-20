@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className='flex'>
           <Button
             value='GO TO HOME'
-            onClick={() => router.push('/home')}
+            onClick={() => router.push('/pc')}
             isIcon
             icon={<TiHome />}
             style='secondary'

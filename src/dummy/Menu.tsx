@@ -1,10 +1,9 @@
 import { MenuType } from '@/components/layout/Navigation';
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { MdDoNotDisturb } from 'react-icons/md';
-import { TiHome } from 'react-icons/ti';
-
+import { RiComputerLine } from 'react-icons/ri';
 export const MENU: Record<string, MenuType> = {
-  home: { key: 'home', value: 'Home', url: '/', icon: <TiHome /> },
+  home: { key: 'pc', value: 'PC', url: '/pc', icon: <RiComputerLine /> },
   component: {
     key: 'component',
     value: 'Component',
