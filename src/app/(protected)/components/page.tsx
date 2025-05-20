@@ -5,6 +5,7 @@ import ButtonView from '@/app/(protected)/components/ButtonView';
 import CalendarView from '@/app/(protected)/components/CalendarView';
 import CardRadioView from '@/app/(protected)/components/CardRadioView';
 import DropButtonView from '@/app/(protected)/components/DropButtonView';
+import InputSmallView from '@/app/(protected)/components/InputSmallView';
 import InputView from '@/app/(protected)/components/InputView';
 import LabelView from '@/app/(protected)/components/LabelView';
 import LinkButtonView from '@/app/(protected)/components/LinkButtonView';
@@ -22,6 +23,7 @@ export default function Components() {
       <h1>Design System Components</h1>
       <div className='flex flex-col gap-8'>
         <InputView />
+        <InputSmallView />
         <TextFieldView />
         <LabelView />
         <SliderView />

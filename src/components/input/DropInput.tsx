@@ -14,6 +14,7 @@ interface DropInputProps {
   errorMessage?: string; // 에러 메시지 (에러 상태일 때만 표시)
   placeholder?: string; // 플레이스홀더 텍스트
   style?: 'default' | 'blue' | 'ghost'; // 색상 스타일
+  size?: 'm' | 's';
 }
 
 export default function DropInput({
@@ -25,6 +26,7 @@ export default function DropInput({
   errorMessage,
   placeholder = 'Text',
   style = 'default',
+  size = 'm',
 }: DropInputProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -71,6 +73,10 @@ export default function DropInput({
       button: 'text-primary-500 hover:text-primary-600',
     },
   };
+  const sizeStyle = {
+    m: { inputWrapper: 'h-12 px-4 py-3', dropButton: 'px-4 py-2' },
+    s: { inputWrapper: 'h-9 px-3 py-1.5', dropButton: 'px-3 py-1' },
+  };
   const variantKey = isDisabled ? 'disabled' : isError ? 'error' : style;
 
   const handleClickInput = () => {
@@ -87,7 +93,7 @@ export default function DropInput({
   return (
     <div className='relative flex flex-1 flex-col gap-1' ref={dropdownRef}>
       <div
-        className={`flex h-12 items-center rounded-sm border-1 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+        className={`flex items-center rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size].inputWrapper}`}
       >
         <input
           className={`flex flex-1 text-16 outline-0 ${variantStyle[variantKey].input}`}
@@ -118,7 +124,7 @@ export default function DropInput({
             {valueList.map((item) => (
               <button
                 key={item}
-                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button}`}
+                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button} ${sizeStyle[size].dropButton}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}

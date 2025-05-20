@@ -16,6 +16,7 @@ interface UploadFileProps {
   clickDelete?: () => void;
   clickCancel?: () => void;
   style?: 'default' | 'blue' | 'ghost';
+  size?: 'm' | 's';
 }
 
 export default function UploadFile({
@@ -28,6 +29,7 @@ export default function UploadFile({
   clickDelete,
   clickCancel,
   style = 'default',
+  size = 'm',
 }: UploadFileProps) {
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>('');
@@ -56,6 +58,10 @@ export default function UploadFile({
       wrapper: 'border-grey-100 bg-grey-100',
       input: 'placeholder:text-grey-500 text-grey-700',
     },
+  };
+  const sizeStyle = {
+    m: 'h-12 px-4 py-3',
+    s: 'h-9 px-3 py-1.5',
   };
   const variantKey = isDisabled ? 'disabled' : isError ? 'error' : style;
 
@@ -99,7 +105,7 @@ export default function UploadFile({
     <div className='flex flex-1 flex-col gap-1'>
       {!isUploading ? (
         <div
-          className={`flex h-12 items-center gap-1 rounded-sm border-1 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+          className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
         >
           <input
             className='hidden'
