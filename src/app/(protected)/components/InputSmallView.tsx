@@ -339,12 +339,6 @@ export default function InputSmallView() {
           />
         </div>
         <div className='flex flex-1 flex-col gap-4'>
-          <InputHide value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-          <InputHide
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            style='primary'
-          />
           <InputHide value={inputValue} onChange={(e) => setInputValue(e.target.value)} size='s' />
           <InputHide
             value={inputValue}

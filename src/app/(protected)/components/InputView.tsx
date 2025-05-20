@@ -296,13 +296,6 @@ export default function InputView() {
             onChange={(e) => setInputValue(e.target.value)}
             style='primary'
           />
-          <InputHide value={inputValue} onChange={(e) => setInputValue(e.target.value)} size='s' />
-          <InputHide
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            style='primary'
-            size='s'
-          />
         </div>
       </div>
     </div>
