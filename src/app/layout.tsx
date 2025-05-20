@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
+import '@/app/globals.css';
 import Footer from '@/components/layout/Footer';
 import { ReactNode } from 'react';
-import './globals.css';
 
 export const metadata: Metadata = {
   title: 'CLE',

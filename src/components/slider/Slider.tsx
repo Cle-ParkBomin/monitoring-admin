@@ -1,5 +1,5 @@
+import Tooltip from '@/components/modal/Tooltip';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Tooltip from '../modal/Tooltip';
 
 interface SliderProps {
   value: number;

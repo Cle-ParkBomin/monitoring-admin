@@ -1,5 +1,5 @@
+import DarkModeToggle from '@/app/DarkModeToggle';
 import { ReactNode } from 'react';
-import DarkModeToggle from '../DarkModeToggle';
 
 export default function Layout({
   children,

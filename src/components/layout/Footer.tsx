@@ -1,10 +1,10 @@
 'use client';
 
+import LinkButton from '@/components/button/LinkButton';
+import Popup from '@/components/modal/Popup';
 import Image from 'next/image';
 import { useState } from 'react';
 import { IoMdPerson } from 'react-icons/io';
-import LinkButton from '../button/LinkButton';
-import Popup from '../modal/Popup';
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -1,20 +1,20 @@
 'use client';
 
-import BadgeView from './BadgeView';
-import ButtonView from './ButtonView';
-import CalendarView from './CalendarView';
-import CardRadioView from './CardRadioView';
-import DropButtonView from './DropButtonView';
-import InputView from './InputView';
-import LabelView from './LabelView';
-import LinkButtonView from './LinkButtonView';
-import ModalView from './ModalView';
-import RadioView from './RadioView';
-import SliderView from './SliderView';
-import TableView from './TableView';
-import TabView from './TabView';
-import TextFieldView from './TextFieldView';
-import ToggleView from './ToggleView';
+import BadgeView from '@/app/(protected)/components/BadgeView';
+import ButtonView from '@/app/(protected)/components/ButtonView';
+import CalendarView from '@/app/(protected)/components/CalendarView';
+import CardRadioView from '@/app/(protected)/components/CardRadioView';
+import DropButtonView from '@/app/(protected)/components/DropButtonView';
+import InputView from '@/app/(protected)/components/InputView';
+import LabelView from '@/app/(protected)/components/LabelView';
+import LinkButtonView from '@/app/(protected)/components/LinkButtonView';
+import ModalView from '@/app/(protected)/components/ModalView';
+import RadioView from '@/app/(protected)/components/RadioView';
+import SliderView from '@/app/(protected)/components/SliderView';
+import TableView from '@/app/(protected)/components/TableView';
+import TabView from '@/app/(protected)/components/TabView';
+import TextFieldView from '@/app/(protected)/components/TextFieldView';
+import ToggleView from '@/app/(protected)/components/ToggleView';
 
 export default function Components() {
   return (

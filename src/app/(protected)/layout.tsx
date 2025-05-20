@@ -1,7 +1,7 @@
+import DarkModeToggle from '@/app/DarkModeToggle';
 import Navigation from '@/components/layout/Navigation';
 import { MENU } from '@/dummy/Menu';
 import { ReactNode } from 'react';
-import DarkModeToggle from '../DarkModeToggle';
 
 export default function Layout({
   children,
