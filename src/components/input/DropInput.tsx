@@ -5,10 +5,11 @@ import { useColorByTheme } from '@/hooks/useColorByTheme';
 import { useRef, useState } from 'react';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import { FaCheck } from 'react-icons/fa6';
-interface DropInputProps {
-  value: string; // 선택된 값
-  valueList: string[]; // 선택지 목록
-  onClick: (value: string) => void; // 선택된 값 변경 핸들러
+interface DropInputProps<T extends string> {
+  value: T; // 선택된 값
+  valueList: T[]; // 선택지 목록
+  onClick: (value: T) => void; // 선택된 값 변경 핸들러
+  labels?: Partial<Record<T, string>>; // 라벨
   isDisabled?: boolean; // 선택 비활성화 여부
   isError?: boolean; // 에러 상태 여부
   errorMessage?: string; // 에러 메시지 (에러 상태일 때만 표시)
@@ -17,17 +18,18 @@ interface DropInputProps {
   size?: 'm' | 's';
 }
 
-export default function DropInput({
+export default function DropInput<T extends string>({
   value,
   valueList,
   onClick,
+  labels,
   isDisabled = false,
   isError = false,
   errorMessage,
   placeholder = 'Text',
   style = 'default',
   size = 'm',
-}: DropInputProps) {
+}: DropInputProps<T>) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -83,7 +85,7 @@ export default function DropInput({
     if (isDisabled) return;
     setIsOpen(!isOpen);
   };
-  const handleClickButton = (item: string) => {
+  const handleClickButton = (item: T) => {
     onClick(item);
     setIsOpen(false);
   };
@@ -98,7 +100,7 @@ export default function DropInput({
         <input
           className={`flex flex-1 text-16 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
-          value={value}
+          value={labels ? labels[value] : value}
           onClick={handleClickInput}
           disabled={isDisabled}
           readOnly
@@ -129,7 +131,7 @@ export default function DropInput({
                   handleClickButton(item);
                 }}
               >
-                <p>{item}</p>
+                <p>{labels ? labels[item] : item}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}

@@ -4,23 +4,25 @@ import { useRef, useState } from 'react';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import { FaCheck } from 'react-icons/fa6';
 
-interface DropLineTextFieldProps {
-  value: string; // 선택된 값
-  valueList: string[]; // 선택지 목록
-  onClick: (value: string) => void; // 선택된 값 변경 핸들러
+interface DropLineTextFieldProps<T extends string> {
+  value: T; // 선택된 값
+  valueList: T[]; // 선택지 목록
+  onClick: (value: T) => void; // 선택된 값 변경 핸들러
+  labels?: Partial<Record<T, string>>;
   isDisabled?: boolean;
   placeholder?: string;
   style?: 'default' | 'line' | 'gray' | 'blue';
 }
 
-export default function DropLineTextField({
+export default function DropLineTextField<T extends string>({
   value,
   valueList,
   onClick,
+  labels,
   isDisabled = false,
   placeholder = 'Text',
   style = 'default',
-}: DropLineTextFieldProps) {
+}: DropLineTextFieldProps<T>) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -66,7 +68,7 @@ export default function DropLineTextField({
     if (isDisabled) return;
     setIsOpen(!isOpen);
   };
-  const handleClickButton = (item: string) => {
+  const handleClickButton = (item: T) => {
     onClick(item);
     setIsOpen(false);
   };
@@ -80,7 +82,7 @@ export default function DropLineTextField({
       >
         <textarea
           className={`flex flex-1 resize-none outline-none ${variantStyle[variantKey].textarea}`}
-          value={value}
+          value={labels ? labels[value] : value}
           placeholder={placeholder}
           disabled={isDisabled}
           rows={1}
@@ -104,7 +106,7 @@ export default function DropLineTextField({
                   handleClickButton(item);
                 }}
               >
-                <p>{item}</p>
+                <p>{labels ? labels[item] : item}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}
