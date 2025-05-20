@@ -1,6 +1,6 @@
-import ScrollNavigation from '@/components/tap/ScrollNavigation';
-import SegmentControl from '@/components/tap/SegmentControl';
-import Tab from '@/components/tap/Tab';
+import ScrollNavigation from '@/components/tab/ScrollNavigation';
+import SegmentControl from '@/components/tab/SegmentControl';
+import Tab from '@/components/tab/Tab';
 import { TabType } from '@/type/components';
 import { useState } from 'react';
 
