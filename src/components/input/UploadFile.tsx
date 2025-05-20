@@ -142,7 +142,9 @@ export default function UploadFile({
           )}
         </div>
       ) : (
-        <div className='flex items-center gap-1 rounded-sm border-1 border-grey-400 bg-grey-0 px-4 py-3'>
+        <div
+          className={`flex items-center gap-1 rounded-sm border-1 border-grey-400 bg-grey-0 ${sizeStyle[size]}`}
+        >
           <LoadingIcon />
           <p className='flex flex-1 text-16 text-grey-950 caret-blue-500 outline-0'>Uploading...</p>
           <IoMdClose cursor='pointer' color={grey500} size={20} onClick={handleCancel} />
