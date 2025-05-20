@@ -18,16 +18,16 @@ export default function CalendarInput({ value, setValue, size = 'm' }: CalendarI
 
   const grey500 = useColorByTheme('grey-500');
   const sizeStyle = {
-    m: 'h-12 px-4 py-3',
-    s: 'h-9 px-3 py-1.5',
+    m: { button: 'h-12 px-4 py-3', calendar: 'top-14' },
+    s: { button: 'h-9 px-3 py-1.5', calendar: 'top-11' },
   };
 
   useClickOutside({ ref: calendarRef, onClick: () => setIsOpen(false) });
 
   return (
-    <div className='relative'>
+    <div className='relative flex flex-1'>
       <button
-        className={`flex cursor-pointer items-center justify-between gap-1 rounded-sm border border-grey-400 bg-grey-0 ${sizeStyle[size]}`}
+        className={`flex flex-1 cursor-pointer items-center justify-between gap-1 rounded-sm border border-grey-400 bg-grey-0 ${sizeStyle[size].button}`}
         onClick={() => setIsOpen(true)}
       >
         <p>
@@ -36,7 +36,7 @@ export default function CalendarInput({ value, setValue, size = 'm' }: CalendarI
         <FaRegCalendar size={20} color={grey500} />
       </button>
       {isOpen && (
-        <div className='absolute z-10 mt-2' ref={calendarRef}>
+        <div className={`absolute z-10 ${sizeStyle[size].calendar}`} ref={calendarRef}>
           <Calendar value={value} setValue={setValue} onClickApply={() => setIsOpen(false)} />
         </div>
       )}
