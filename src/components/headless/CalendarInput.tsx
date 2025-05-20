@@ -1,22 +1,18 @@
 import Calendar from '@/components/headless/Calendar';
 import useClickOutside from '@/hooks/useClickOutside';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
+import { DateRange } from '@/types/components';
 import { formatToYYYYMMDD } from '@/utils/date';
-import { Dispatch, SetStateAction, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FaRegCalendar } from 'react-icons/fa';
 
-export interface DateRange {
-  from: Date | undefined;
-  to?: Date | undefined;
-}
-
 interface CalendarInputProps {
-  selected: DateRange | undefined;
-  setSelected: Dispatch<SetStateAction<DateRange | undefined>>;
+  value: DateRange;
+  setValue: (value: DateRange) => void;
   size?: 'm' | 's';
 }
 
-export default function CalendarInput({ selected, setSelected, size = 'm' }: CalendarInputProps) {
+export default function CalendarInput({ value, setValue, size = 'm' }: CalendarInputProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 
@@ -35,13 +31,13 @@ export default function CalendarInput({ selected, setSelected, size = 'm' }: Cal
         onClick={() => setIsOpen(true)}
       >
         <p>
-          {formatToYYYYMMDD(selected?.from)} ~ {formatToYYYYMMDD(selected?.to)}
+          {formatToYYYYMMDD(value?.from)} ~ {formatToYYYYMMDD(value?.to)}
         </p>
         <FaRegCalendar size={20} color={grey500} />
       </button>
       {isOpen && (
         <div className='absolute z-10 mt-2' ref={calendarRef}>
-          <Calendar selected={selected} setSelected={setSelected} />
+          <Calendar value={value} setValue={setValue} onClickApply={() => setIsOpen(false)} />
         </div>
       )}
     </div>
