@@ -1,7 +1,7 @@
 import ScrollNavigation from '@/components/tab/ScrollNavigation';
 import SegmentControl from '@/components/tab/SegmentControl';
 import Tab from '@/components/tab/Tab';
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 import { useState } from 'react';
 
 export default function TabView() {

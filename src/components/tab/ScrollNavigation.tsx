@@ -1,4 +1,4 @@
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 
 interface ScrollNavigationProps {
   value: TabType;

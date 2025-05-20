@@ -1,4 +1,4 @@
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 import { FaCheck } from 'react-icons/fa6';
 
 interface SegmentControlProps {
