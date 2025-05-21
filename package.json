@@ -44,7 +44,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged && npm run i18n"
+      "pre-commit": "npx lint-staged"
     }
   },
   "lint-staged": {
