@@ -1,4 +1,4 @@
-import ThemeMode from '@/app/ThemMode';
+import ThemeMode from '@/app/ThemeMode';
 import Navigation from '@/components/layout/Navigation';
 import { MENU } from '@/dummy/Menu';
 import { ReactNode } from 'react';
