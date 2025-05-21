@@ -96,12 +96,12 @@ export default function DropLineTextField<T extends string>({
         )}
       </div>
       {isOpen && (
-        <div className='absolute top-[110%] left-0 z-10 max-h-48 w-[100%] overflow-auto rounded-sm border-grey-300 bg-grey-0 p-1 shadow-strong'>
-          <ul className='flex animate-fade-in flex-col gap-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[110%] z-10 max-h-48 w-[100%] overflow-auto rounded-sm p-1'>
+          <ul className='animate-fade-in flex flex-col gap-1'>
             {valueList.map((item) => (
               <button
                 key={item}
-                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button}`}
+                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 ${item === value && variantStyle[variantKey].button}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}

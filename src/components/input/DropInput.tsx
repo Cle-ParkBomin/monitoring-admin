@@ -93,12 +93,12 @@ export default function DropInput<T extends string>({
   useClickOutside({ ref: dropdownRef, onClick: () => setIsOpen(false) });
 
   return (
-    <div className='relative flex flex-1 flex-col gap-1' ref={dropdownRef}>
+    <div className='relative z-20 flex flex-1 flex-col gap-1' ref={dropdownRef}>
       <div
-        className={`flex items-center rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size].inputWrapper}`}
+        className={`border-1 flex items-center rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size].inputWrapper}`}
       >
         <input
-          className={`flex flex-1 text-16 outline-0 ${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           value={labels ? labels[value] : value}
           onClick={handleClickInput}
@@ -113,7 +113,7 @@ export default function DropInput<T extends string>({
       </div>
 
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (
@@ -121,12 +121,12 @@ export default function DropInput<T extends string>({
       )}
 
       {isOpen && (
-        <div className='absolute top-[80%] left-0 z-10 max-h-48 w-[100%] overflow-auto rounded-sm border border-grey-300 bg-grey-0 p-1 shadow-strong'>
-          <ul className='flex flex-1 animate-fade-in flex-col gap-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] z-20 max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
+          <ul className='animate-fade-in flex flex-1 flex-col gap-1'>
             {valueList.map((item) => (
               <button
                 key={item}
-                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button} ${sizeStyle[size].dropButton}`}
+                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 ${item === value && variantStyle[variantKey].button} ${sizeStyle[size].dropButton}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}
