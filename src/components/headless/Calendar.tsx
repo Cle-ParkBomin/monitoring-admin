@@ -1,5 +1,5 @@
 import Button from '@/components/button/Button';
-import { DateRange } from '@/types/components';
+import { DateRange } from '@/types/date';
 import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { ko } from 'react-day-picker/locale';
@@ -25,7 +25,7 @@ export default function Calendar({ value, setValue, onClickReset, onClickApply }
   };
 
   return (
-    <div className='flex w-fit flex-col rounded-lg border border-grey-300 bg-grey-0 pt-4 shadow-strong'>
+    <div className='border-grey-300 bg-grey-0 shadow-strong flex w-fit flex-col rounded-lg border pt-4'>
       <DayPicker
         mode='range'
         selected={date}

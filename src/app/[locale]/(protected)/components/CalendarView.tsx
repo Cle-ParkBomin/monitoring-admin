@@ -2,7 +2,7 @@
 
 import Calendar from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
-import { DateRange } from '@/types/components';
+import { DateRange } from '@/types/date';
 import { useState } from 'react';
 
 export default function CalendarView() {

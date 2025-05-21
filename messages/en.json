@@ -1,14 +1,30 @@
 {
-  "root": {
-    "theme-mode": {
-      "title": "Dark Mode"
-    },
-    "language-switch": {
-      "title": "Language"
-    }
+  "enum": {
+    "ASC": "ASC",
+    "DESC": "DESC",
+    "ACTIVE": "ACTIVE",
+    "INACTIVE": "INACTIVE"
   },
-  "error": {},
-  "not-found": {},
-  "hmgma": {},
-  "login": {}
+  "root": {
+    "theme-mode": "Dark Mode",
+    "language-switch": "Language"
+  },
+  "error": {
+    "title": "An unexpected error occurred while loading the page.",
+    "content": "Please try again shortly, or go back to the previous page.",
+    "button": "Go Back"
+  },
+  "not-found": {
+    "title": "404 PAGE NOT FOUND",
+    "content": "This page doesn't exist.",
+    "button": "Go to Home"
+  },
+  "hmgma": {
+    "search": "Search",
+    "sort": "Sort",
+    "filter": "Filter",
+    "date": "Date",
+    "license": "License",
+    "reset": "Reset"
+  }
 }

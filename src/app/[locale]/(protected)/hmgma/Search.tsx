@@ -1,8 +1,10 @@
 import IconInput from '@/components/input/IconInput';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 
 export default function Search() {
+  const t = useTranslations('hmgma');
   const [search, setSearch] = useState<string>('');
 
   return (
@@ -17,7 +19,7 @@ export default function Search() {
             }}
           />
         }
-        placeholder='검색'
+        placeholder={t('search')}
         size='s'
       />
     </div>

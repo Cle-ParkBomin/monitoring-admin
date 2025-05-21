@@ -10,7 +10,7 @@ export default function Home() {
       <table className='flex flex-1 flex-col px-1'>
         {/* Table Header */}
         <caption className='flex flex-wrap justify-between gap-2 text-left'>
-          <p className='text-24 leading-32 font-700'>표</p>
+          <p className='text-24 leading-32 font-700'>HMGMA</p>
           <div className='flex gap-2'>
             <Search />
             <Sort />

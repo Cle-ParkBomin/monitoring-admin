@@ -1,6 +1,7 @@
 'use client';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
+import { useRouter } from 'next/navigation';
 import React, { JSX } from 'react';
 
 export interface MenuType {
@@ -39,23 +40,18 @@ export default function Navigation({ menu }: NavigationProps) {
     });
 
   return (
-    <div className='flex h-full flex-col bg-grey-0 shadow-strong'>
+    <div className='bg-grey-0 shadow-strong flex h-full flex-col'>
       {Object.values(menu).map((item) => {
-        const isHome = item.url === '/';
         const variantKey = item.isDisabled
           ? 'disabled'
-          : isHome
-            ? pathname === '/'
-              ? 'active'
-              : 'default'
-            : pathname.startsWith(item.url)
-              ? 'active'
-              : 'default';
+          : pathname.startsWith(item.url)
+            ? 'active'
+            : 'default';
 
         return (
           <div className='flex p-2' key={`navigation_${item.key}`}>
             <button
-              className={`flex flex-1 flex-col items-center justify-center gap-1 rounded-lg p-4 text-12 leading-16 hover:bg-grey-950/4 ${variantStyle[variantKey].button}`}
+              className={`text-12 leading-16 hover:bg-grey-950/4 flex flex-1 flex-col items-center justify-center gap-1 rounded-lg p-4 ${variantStyle[variantKey].button}`}
               onClick={() => router.push(item.url)}
               disabled={item.isDisabled}
             >

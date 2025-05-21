@@ -1,7 +1,7 @@
 import Calendar from '@/components/headless/Calendar';
 import useClickOutside from '@/hooks/useClickOutside';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import { DateRange } from '@/types/components';
+import { DateRange } from '@/types/date';
 import { formatToYYYYMMDD } from '@/utils/date';
 import { useRef, useState } from 'react';
 import { FaRegCalendar } from 'react-icons/fa';
@@ -27,7 +27,7 @@ export default function CalendarInput({ value, setValue, size = 'm' }: CalendarI
   return (
     <div className='relative flex flex-1'>
       <button
-        className={`flex flex-1 cursor-pointer items-center justify-between gap-1 rounded-sm border border-grey-400 bg-grey-0 ${sizeStyle[size].button}`}
+        className={`border-grey-400 bg-grey-0 flex flex-1 cursor-pointer items-center justify-between gap-1 rounded-sm border ${sizeStyle[size].button}`}
         onClick={() => setIsOpen(true)}
       >
         <p>

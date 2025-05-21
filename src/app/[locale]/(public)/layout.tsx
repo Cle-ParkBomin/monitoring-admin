@@ -9,7 +9,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <div className='flex justify-end'>
+      <div className='flex items-center justify-end gap-4'>
         <LanguageSwitch />
         <DarkModeToggle />
       </div>

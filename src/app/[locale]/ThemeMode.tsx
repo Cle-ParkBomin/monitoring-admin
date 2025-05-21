@@ -21,7 +21,5 @@ export default function ThemeMode() {
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
   };
 
-  return (
-    <Toggle value={isDark} title={t('theme-mode.title')} onClick={toggleTheme} color='green' />
-  );
+  return <Toggle value={isDark} title={t('theme-mode')} onClick={toggleTheme} color='green' />;
 }
