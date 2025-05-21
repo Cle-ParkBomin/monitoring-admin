@@ -1,0 +1,14 @@
+{
+  "root": {
+    "theme-mode": {
+      "title": "다크 모드"
+    },
+    "language-switch": {
+      "title": "언어 선택"
+    }
+  },
+  "error": {},
+  "not-found": {},
+  "hmgma": {},
+  "login": {}
+}

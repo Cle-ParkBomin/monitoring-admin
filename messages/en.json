@@ -1,0 +1,15 @@
+{
+  "root": {
+    "theme-mode": {
+      "title": "Dark Mode"
+    },
+    "language-switch": {
+      "title": "Language",
+      "husky": "test"
+    }
+  },
+  "error": {},
+  "not-found": {},
+  "hmgma": {},
+  "login": {}
+}
