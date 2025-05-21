@@ -10,6 +10,7 @@
 - **`next start`** : 프로덕션 서버 시작
 - **`next lint`** : ESLint 실행
 - **`lint-staged`** : 스테이징된 파일 코드 컨벤션 검사
+- **`npm run i18n`** : 다국어 json 파일 일치 검사
 
 ---
 
@@ -34,7 +35,7 @@
    예) `tailwindcss`, `css`, `scss`, `sass` 등을 함께 사용하지 않음
 
 > 💡 **Husky + lint-staged**  
-> 커밋 전 `npx lint-staged`를 실행합니다.  
+> 커밋 전 `npx lint-staged` `npm run i18n` 를 실행합니다.  
 > ESLint 오류 발생 시 Git 커밋이 차단됩니다.
 
 ---
@@ -78,6 +79,57 @@ ui 라이브러리는 되도록 사용하지 않습니다.
 
 ---
 
+# 🌐 다국어 지원 (Internationalization)
+
+### 지원 언어
+- 🇰🇷 ko (한국어) - 기본 언어
+- 🇺🇸 en (영어)
+
+### URL 구조
+- /ko/ → 한국어 (https://domain.com/ko/...)
+- /en/ → 영어 (https://domain.com/en/...)
+
+### i18n 검사 도구
+
+en.json, ko.json 관련 키 누락, 불일치 등을 확인을 위해 다음 명령어를 실행합니다.
+`npm run i18n-check`
+
+검사 항목
+1. 누락된 번역 키: en.json 기준으로 다른 언어 파일에 없는 키
+2. 불일치 키: 파일 간 키 구조 불일치
+3. 미사용 키: 코드에서 사용되지 않는 키
+4. 정의되지 않은 키: 코드에 사용됐지만 번역 파일에 없는 키
+
+en.json을 기준으로 검사가 수행됩니다.
+
+### 📁 디렉토리 구조 예시
+/messages
+  ├── en.json
+  └── ko.json
+
+### 다국어 json 파일 key 작성 규칙
+1. 페이지 네이밍
+- `page.tsx`가 위치한 **폴더명을 기준**으로 네임스페이스를 설정합니다.  
+  예:  
+  경로가 `src/components/page.tsx`인 경우  
+  → `components: { ... }`
+
+2. Key depth 제한
+- **Key depth는 최대 2단계**까지만 허용됩니다.
+- ❌ 예시 (허용되지 않음):
+  ```json
+  {
+    "root": {
+      "mode": {
+        "title": "제목"
+      }
+    }
+  }
+
+번역 추가 시 **기본 언어(en)**와 다른 언어(ko) 모두 업데이트해야 합니다.
+
+---
+
 # 📁 **Git**
 
 (내용 필요 시 추가)
@@ -94,6 +146,4 @@ ui 라이브러리는 되도록 사용하지 않습니다.
 
 # 🚀 **배포**
 
-(추후 추가 예정)
-
-- [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+- https://monitoring-admin.vercel.app/

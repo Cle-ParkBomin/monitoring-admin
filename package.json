@@ -9,7 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
-    "i18n": "i18n-check --locales messages --source en --format icu --only missingKeys invalidKeys unused undefined --unused src --reporter console"
+    "i18n-check": "i18n-check --locales messages --source en --format icu --only missingKeys invalidKeys unused undefined --unused src --reporter console"
   },
   "dependencies": {
     "eslint-config-prettier": "^10.1.3",
