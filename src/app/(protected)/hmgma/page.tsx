@@ -1,8 +1,8 @@
 'use client';
 
-import Filter from '@/app/(protected)/pc/Filter';
-import Search from '@/app/(protected)/pc/Search';
-import Sort from '@/app/(protected)/pc/Sort';
+import Filter from '@/app/(protected)/hmgma/Filter';
+import Search from '@/app/(protected)/hmgma/Search';
+import Sort from '@/app/(protected)/hmgma/Sort';
 
 export default function Home() {
   return (

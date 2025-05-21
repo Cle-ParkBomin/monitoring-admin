@@ -1,4 +1,4 @@
-import DarkModeToggle from '@/app/DarkModeToggle';
+import DarkModeToggle from '@/app/ThemMode';
 import { ReactNode } from 'react';
 
 export default function Layout({

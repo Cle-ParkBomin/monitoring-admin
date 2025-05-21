@@ -3,7 +3,7 @@ import { LuLayoutDashboard } from 'react-icons/lu';
 import { MdDoNotDisturb } from 'react-icons/md';
 import { RiComputerLine } from 'react-icons/ri';
 export const MENU: Record<string, MenuType> = {
-  home: { key: 'pc', value: 'PC', url: '/pc', icon: <RiComputerLine /> },
+  home: { key: 'hmgma', value: 'HMGMA', url: '/hmgma', icon: <RiComputerLine /> },
   component: {
     key: 'component',
     value: 'Component',
