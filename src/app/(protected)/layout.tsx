@@ -1,4 +1,4 @@
-import DarkModeToggle from '@/app/DarkModeToggle';
+import ThemeMode from '@/app/ThemMode';
 import Navigation from '@/components/layout/Navigation';
 import { MENU } from '@/dummy/Menu';
 import { ReactNode } from 'react';
@@ -15,7 +15,7 @@ export default function Layout({
       </nav>
 
       <div className='flex justify-end'>
-        <DarkModeToggle />
+        <ThemeMode />
       </div>
 
       <div className='flex flex-1'>{children}</div>

@@ -4,7 +4,7 @@ import Toggle from '@/components/toggle/Toggle';
 import UseSystemDarkMode from '@/hooks/useSystemDarkMode';
 import { useEffect, useState } from 'react';
 
-export default function DarkModeToggle() {
+export default function ThemeMode() {
   const systemIsDark = UseSystemDarkMode();
   const [isDark, setIsDark] = useState(false);
 
