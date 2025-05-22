@@ -1,15 +1,15 @@
 # 🛠️ **시작하기**
 
-### 실행 명령어 (npx 생략)
+### 실행 명령어
 1. 터미널에서 `npm i` 실행합니다.
 2. 터미널에서 `npx next dev` 실행합니다.
 3. localhost:3000 에 진입합니다.
 
-- **`next dev`** : 개발 서버 시작 [http://localhost:3000](http://localhost:3000)
-- **`next build`** : 프로덕션을 위한 애플리케이션 빌드
-- **`next start`** : 프로덕션 서버 시작
-- **`next lint`** : ESLint 실행
-- **`lint-staged`** : 스테이징된 파일 코드 컨벤션 검사
+- **`npx next dev`** : 개발 서버 시작 [http://localhost:3000](http://localhost:3000)
+- **`npx next build`** : 프로덕션을 위한 애플리케이션 빌드
+- **`npx next start`** : 프로덕션 서버 시작
+- **`npx next lint`** : ESLint 실행
+- **`npx lint-staged`** : 스테이징된 파일 코드 컨벤션 검사
 - **`npm run i18n`** : 다국어 json 파일 일치 검사
 
 ---
