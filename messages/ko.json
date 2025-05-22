@@ -27,5 +27,9 @@
     "license": "라이센스",
     "reset": "초기화"
   },
-  "login": {}
+  "todo": {
+    "title": "해야 할 일",
+    "sub-title-1": "런처 작업 이전",
+    "sub-title-2": "런처 작업 이후"
+  }
 }

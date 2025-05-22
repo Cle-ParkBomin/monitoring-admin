@@ -30,5 +30,10 @@ declare const messages: {
     license: 'License';
     reset: 'Reset';
   };
+  todo: {
+    title: 'To Do List';
+    'sub-title-1': 'Before Luncher';
+    'sub-title-2': 'After Luncher';
+  };
 };
 export default messages;
