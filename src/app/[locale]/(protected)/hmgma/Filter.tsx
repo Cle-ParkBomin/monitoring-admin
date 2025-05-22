@@ -32,7 +32,7 @@ export default function Filter() {
   });
 
   return (
-    <div className='relative z-10'>
+    <div className='relative'>
       <div className='flex w-24'>
         <Button
           value={t('filter')}
@@ -75,7 +75,6 @@ export default function Filter() {
                 })
               }
               size='s'
-              labels={ActiveStatusEnum}
             />
           </li>
 
