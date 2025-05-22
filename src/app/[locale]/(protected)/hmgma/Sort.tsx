@@ -11,6 +11,7 @@ import { useImmer } from 'use-immer';
 export default function Sort() {
   const sortRef = useRef<HTMLUListElement>(null);
   const t = useTranslations('hmgma');
+  const tEnum = useTranslations('enum');
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [sort, setSort] = useImmer<Record<string, keyof typeof SortDirectionEnum>>({
@@ -28,7 +29,7 @@ export default function Sort() {
   });
 
   return (
-    <div className='relative z-10'>
+    <div className='relative'>
       <div className='flex w-24'>
         <Button
           value={t('sort')}
@@ -49,7 +50,7 @@ export default function Sort() {
             <li className='border-grey-300 flex flex-col gap-1.5 border-b p-2' key={`sort_${item}`}>
               <p className='text-grey-700'>{item}</p>
               <Radio
-                value={SortDirectionEnum.ASC}
+                value={tEnum(SortDirectionEnum.ASC)}
                 isCheck={sort[item] === 'ASC'}
                 onClick={() => {
                   setSort((draft) => {
@@ -60,7 +61,7 @@ export default function Sort() {
                 size='s'
               />
               <Radio
-                value={SortDirectionEnum.DESC}
+                value={tEnum(SortDirectionEnum.DESC)}
                 isCheck={sort[item] === 'DESC'}
                 onClick={() => {
                   setSort((draft) => {
