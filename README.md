@@ -10,7 +10,7 @@
 - **`npx next start`** : 프로덕션 서버 시작
 - **`npx next lint`** : ESLint 실행
 - **`npx lint-staged`** : 스테이징된 파일 코드 컨벤션 검사
-- **`npm run i18n`** : 다국어 json 파일 일치 검사
+- **`npm run i18n-check`** : 다국어 json 파일 일치 검사
 
 ---
 
