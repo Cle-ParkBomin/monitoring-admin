@@ -9,7 +9,6 @@ interface DropInputProps<T extends string> {
   value: T; // 선택된 값
   valueList: T[]; // 선택지 목록
   onClick: (value: T) => void; // 선택된 값 변경 핸들러
-  labels?: Partial<Record<T, string>>; // 라벨
   isDisabled?: boolean; // 선택 비활성화 여부
   isError?: boolean; // 에러 상태 여부
   errorMessage?: string; // 에러 메시지 (에러 상태일 때만 표시)
@@ -22,7 +21,6 @@ export default function DropInput<T extends string>({
   value,
   valueList,
   onClick,
-  labels,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -93,14 +91,14 @@ export default function DropInput<T extends string>({
   useClickOutside({ ref: dropdownRef, onClick: () => setIsOpen(false) });
 
   return (
-    <div className='relative z-20 flex flex-1 flex-col gap-1' ref={dropdownRef}>
+    <div className='relative flex flex-1 flex-col gap-1' ref={dropdownRef}>
       <div
         className={`border-1 flex items-center rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size].inputWrapper}`}
       >
         <input
           className={`text-16 flex flex-1 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
-          value={labels ? labels[value] : value}
+          value={value}
           onClick={handleClickInput}
           disabled={isDisabled}
           readOnly
@@ -121,7 +119,7 @@ export default function DropInput<T extends string>({
       )}
 
       {isOpen && (
-        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] z-20 max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
           <ul className='animate-fade-in flex flex-1 flex-col gap-1'>
             {valueList.map((item) => (
               <button
@@ -131,7 +129,7 @@ export default function DropInput<T extends string>({
                   handleClickButton(item);
                 }}
               >
-                <p>{labels ? labels[item] : item}</p>
+                <p>{item}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}

@@ -8,7 +8,6 @@ interface DropLineTextFieldProps<T extends string> {
   value: T; // 선택된 값
   valueList: T[]; // 선택지 목록
   onClick: (value: T) => void; // 선택된 값 변경 핸들러
-  labels?: Partial<Record<T, string>>;
   isDisabled?: boolean;
   placeholder?: string;
   style?: 'default' | 'line' | 'gray' | 'blue';
@@ -18,7 +17,6 @@ export default function DropLineTextField<T extends string>({
   value,
   valueList,
   onClick,
-  labels,
   isDisabled = false,
   placeholder = 'Text',
   style = 'default',
@@ -82,7 +80,7 @@ export default function DropLineTextField<T extends string>({
       >
         <textarea
           className={`flex flex-1 resize-none outline-none ${variantStyle[variantKey].textarea}`}
-          value={labels ? labels[value] : value}
+          value={value}
           placeholder={placeholder}
           disabled={isDisabled}
           rows={1}
@@ -106,7 +104,6 @@ export default function DropLineTextField<T extends string>({
                   handleClickButton(item);
                 }}
               >
-                <p>{labels ? labels[item] : item}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}

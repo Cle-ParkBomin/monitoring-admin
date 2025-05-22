@@ -7,7 +7,6 @@ interface DropButtonProps<T extends string> {
   value: T;
   valueList: T[];
   onClick: (value: T) => void;
-  labels?: Partial<Record<T, string>>;
   size?: 'm' | 's';
 }
 
@@ -16,7 +15,6 @@ export default function DropButton<T extends string>({
   value,
   valueList,
   onClick,
-  labels,
   size = 'm',
 }: DropButtonProps<T>) {
   const dropdownRef = useRef<HTMLUListElement>(null);
@@ -39,7 +37,7 @@ export default function DropButton<T extends string>({
   useClickOutside({ ref: dropdownRef, onClick: () => setIsOpen(false) });
 
   return (
-    <div className='relative z-20'>
+    <div className='relative'>
       <button
         className='text-14 leading-20 text-grey-700 cursor-pointer whitespace-nowrap underline'
         onClick={handleClickButton}
@@ -50,7 +48,7 @@ export default function DropButton<T extends string>({
       {/* dropDown */}
       {isOpen && (
         <ul
-          className='border-grey-300 bg-grey-0 shadow-strong absolute z-20 flex max-h-48 w-fit flex-col gap-1 overflow-auto rounded-sm border p-1'
+          className='border-grey-300 bg-grey-0 shadow-strong absolute z-10 flex max-h-48 w-fit flex-col gap-1 overflow-auto rounded-sm border p-1'
           ref={dropdownRef}
         >
           {valueList.map((item) => (
@@ -59,7 +57,7 @@ export default function DropButton<T extends string>({
               className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center gap-1 ${item === value && 'text-primary-500 hover:text-primary-600'} ${sizeStyle[size]}`}
               onClick={() => handleClickOption(item)}
             >
-              <p>{labels ? labels[item] : item}</p>
+              <p>{item}</p>
               {item === value && <FaCheck size={16} />}
             </button>
           ))}
