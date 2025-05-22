@@ -50,7 +50,7 @@ export default function Sort() {
             <li className='border-grey-300 flex flex-col gap-1.5 border-b p-2' key={`sort_${item}`}>
               <p className='text-grey-700'>{item}</p>
               <Radio
-                value={tEnum(SortDirectionEnum.ASC)}
+                label={tEnum(SortDirectionEnum.ASC)}
                 isCheck={sort[item] === 'ASC'}
                 onClick={() => {
                   setSort((draft) => {
@@ -61,7 +61,7 @@ export default function Sort() {
                 size='s'
               />
               <Radio
-                value={tEnum(SortDirectionEnum.DESC)}
+                label={tEnum(SortDirectionEnum.DESC)}
                 isCheck={sort[item] === 'DESC'}
                 onClick={() => {
                   setSort((draft) => {

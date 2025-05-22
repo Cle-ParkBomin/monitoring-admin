@@ -12,34 +12,34 @@ export default function RadioView() {
       <div className='border-1 border-grey-300 flex flex-1 flex-wrap justify-between rounded-s-lg p-4'>
         <div className='flex flex-1 flex-col gap-4'>
           <Radio
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             size='s'
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={false}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
             size='s'
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={true}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
             size='s'
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary500'
             size='s'
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary600'
@@ -47,27 +47,27 @@ export default function RadioView() {
           />
         </div>
         <div className='flex flex-1 flex-col gap-4'>
-          <Radio value='Button' isCheck={radioValue} onClick={() => setRadioValue(!radioValue)} />
+          <Radio label='Button' isCheck={radioValue} onClick={() => setRadioValue(!radioValue)} />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={false}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={true}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary500'
           />
           <Radio
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary600'
@@ -75,34 +75,34 @@ export default function RadioView() {
         </div>
         <div className='flex flex-1 flex-col gap-4'>
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             size='s'
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={false}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
             size='s'
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={true}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
             size='s'
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary500'
             size='s'
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary600'
@@ -111,30 +111,30 @@ export default function RadioView() {
         </div>
         <div className='flex flex-1 flex-col gap-4'>
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={false}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={true}
             onClick={() => setRadioValue(!radioValue)}
             isDisabled
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary500'
           />
           <CheckBox
-            value='Button'
+            label='Button'
             isCheck={radioValue}
             onClick={() => setRadioValue(!radioValue)}
             style='primary600'

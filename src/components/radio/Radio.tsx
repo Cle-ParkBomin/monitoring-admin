@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react';
 
 interface RadioProps {
-  value: string;
+  label: string;
   isCheck: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>;
   isDisabled?: boolean;
@@ -10,7 +10,7 @@ interface RadioProps {
 }
 
 export default function Radio({
-  value,
+  label,
   isCheck,
   onClick,
   isDisabled = false,
@@ -63,7 +63,7 @@ export default function Radio({
           <div className={`h-2.5 w-2.5 rounded-full ${variantStyle[variantKey].circleIn}`} />
         )}
       </div>
-      <p className={`${variantStyle[variantKey].text} ${sizeStyle[size]}`}>{value}</p>
+      <p className={`${variantStyle[variantKey].text} ${sizeStyle[size]}`}>{label}</p>
     </button>
   );
 }
