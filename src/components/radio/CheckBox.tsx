@@ -5,7 +5,7 @@ import { FaCheck } from 'react-icons/fa6';
 interface CheckBoxProps {
   label: string;
   isCheck: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   isDisabled?: boolean;
   style?: 'default' | 'primary500' | 'primary600';
   size?: 'm' | 's';
