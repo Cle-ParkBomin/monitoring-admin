@@ -1,21 +1,47 @@
-export default function Table() {
+import Filter from '@/components/table/Filter';
+import Search from '@/components/table/Search';
+import Sort from '@/components/table/Sort';
+import TableBody from '@/components/table/TableBody';
+import TableHeader from '@/components/table/TableHeader';
+import { ReactNode } from 'react';
+
+interface TableProps<T extends { id: number }> {
+  data: T[];
+  filterBody: { title: string; content: ReactNode }[];
+  handleSearch: (value: string) => void;
+  renderHeader: (key: keyof T) => ReactNode;
+  renderCell: (row: T, key: keyof T) => ReactNode;
+}
+
+export default function Table<T extends { id: number }>({
+  data,
+  filterBody,
+  handleSearch,
+  renderHeader,
+  renderCell,
+}: TableProps<T>) {
+  if (data.length < 1)
+    return (
+      <div className='mt-8 flex flex-1 items-center justify-center'>
+        <p>데이터가 없습니다.</p>
+      </div>
+    );
+
   return (
-    <table className='flex flex-1 flex-col px-1'>
-      {/* Table Body */}
-      <thead className='flex border border-b-0 border-grey-300 bg-grey-50'>
-        <tr className='center flex flex-1 text-14 leading-20 text-grey-700'>
-          <th className='flex flex-1 items-center px-3 py-2.5 font-400'>헤더</th>
-          <th className='flex flex-1 items-center px-3 py-2.5 font-400'>헤더2</th>
-          <th className='flex flex-1 items-center px-3 py-2.5 font-400'>헤더3</th>
-        </tr>
-      </thead>
-      <tbody className='flex border border-grey-300 leading-24'>
-        <tr className='flex flex-1 justify-between'>
-          <td className='flex flex-1 px-3 py-2.5'>{1}</td>
-          <td className='flex flex-1 px-3 py-2.5'>{1}</td>
-          <td className='flex flex-1 px-3 py-2.5'>{1}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className='mt-8 flex flex-1 flex-col'>
+      <div className='flex flex-wrap justify-between gap-2 text-left'>
+        <p className='text-24 leading-32 font-700'>HMGMA</p>
+        <div className='flex gap-2'>
+          <Search handleSearch={handleSearch} />
+          <Sort data={data} renderHeader={renderHeader} handleSearch={handleSearch} />
+          <Filter filterBody={filterBody} handleSearch={handleSearch} />
+        </div>
+      </div>
+      <table className='px-1 text-left'>
+        <TableHeader data={data} renderHeader={renderHeader} />
+
+        <TableBody data={data} renderCell={renderCell} />
+      </table>
+    </div>
   );
 }

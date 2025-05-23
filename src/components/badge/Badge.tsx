@@ -1,9 +1,11 @@
 import { MouseEventHandler } from 'react';
 
+export type BadgeColor = 'yellow' | 'blue' | 'green' | 'purple' | 'grey' | 'red' | 'neo-green';
+
 interface BadgeProps {
   value: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  color?: 'yellow' | 'blue' | 'green' | 'purple' | 'grey' | 'red' | 'neo-green';
+  color?: BadgeColor;
   size?: 'l' | 'm' | 's';
 }
 
@@ -26,7 +28,7 @@ export default function Badge({ value, onClick, color = 'grey', size = 'm' }: Ba
 
   return (
     <button
-      className={`text-medium flex w-fit cursor-pointer items-center gap-2 rounded-lg border-1 ${variantStyle[color]} ${sizeStyle[size]}`}
+      className={`text-medium border-1 flex w-fit items-center gap-2 rounded-lg ${variantStyle[color]} ${sizeStyle[size]} ${onClick && 'cursor-pointer'}`}
       onClick={onClick}
     >
       <p> {value}</p>

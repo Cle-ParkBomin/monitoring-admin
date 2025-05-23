@@ -5,6 +5,29 @@
     "ACTIVE": "ACTIVE",
     "INACTIVE": "INACTIVE"
   },
+  "mockup": {
+    "id": "ID",
+    "line": "Line",
+    "process": "Process",
+    "position": "Position",
+    "pc": "PC",
+    "serialNumber": "Serial Number",
+    "anyDeskIP": "AnyDesk IP",
+    "ipv4Address": "IP Address",
+    "isLicense": "License Status",
+    "isNetwork": "Network Connectivity",
+    "isProgram": "Program Status",
+    "launcherUpdateAt": "Launcher Updated",
+    "updateAt": "DB Updated"
+  },
+  "table": {
+    "search": "Search",
+    "sort": "Sort",
+    "filter": "Filter",
+    "date": "Date",
+    "license": "License",
+    "reset": "Reset"
+  },
   "root": {
     "theme-mode": "Dark Mode",
     "language-switch": "Language"
@@ -12,20 +35,13 @@
   "error": {
     "title": "An unexpected error occurred while loading the page.",
     "content": "Please try again shortly, or go back to the previous page.",
-    "button": "Go Back"
+    "backButton": "Go Back",
+    "refreshButton": "Refresh"
   },
   "not-found": {
     "title": "404 PAGE NOT FOUND",
     "content": "This page doesn't exist.",
     "button": "Go to Home"
-  },
-  "hmgma": {
-    "search": "Search",
-    "sort": "Sort",
-    "filter": "Filter",
-    "date": "Date",
-    "license": "License",
-    "reset": "Reset"
   },
   "todo": {
     "title": "To Do List",

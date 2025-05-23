@@ -5,6 +5,29 @@
     "ACTIVE": "활성",
     "INACTIVE": "비활성"
   },
+  "mockup": {
+    "id": "ID",
+    "line": "라인",
+    "process": "공정",
+    "position": "분류",
+    "pc": "PC",
+    "serialNumber": "시리얼 넘버",
+    "anyDeskIP": "애니데스크 IP",
+    "ipv4Address": "IP 주소",
+    "isLicense": "라이선스 여부",
+    "isNetwork": "네트워크 접속 여부",
+    "isProgram": "프로그램 종료 여부",
+    "launcherUpdateAt": "런처 업데이트 일시",
+    "updateAt": "DB 업데이트 일시"
+  },
+  "table": {
+    "search": "검색",
+    "sort": "정렬",
+    "filter": "필터",
+    "date": "날짜",
+    "license": "라이센스",
+    "reset": "초기화"
+  },
   "root": {
     "theme-mode": "다크 모드",
     "language-switch": "언어 선택"
@@ -12,20 +35,13 @@
   "error": {
     "title": "페이지를 불러오는 중 예상치 못한 오류가 발생했습니다.",
     "content": "잠시 후 다시 시도하시거나, 이전 페이지로 돌아가 주세요.",
-    "button": "뒤로 가기"
+    "backButton": "뒤로 가기",
+    "refreshButton": "새로 고침"
   },
   "not-found": {
     "title": "404 PAGE NOT FOUND",
     "content": "존재하지 않는 페이지 입니다.",
     "button": "홈으로"
-  },
-  "hmgma": {
-    "search": "검색",
-    "sort": "정렬",
-    "filter": "필터",
-    "date": "날짜",
-    "license": "라이센스",
-    "reset": "초기화"
   },
   "todo": {
     "title": "해야 할 일",
