@@ -1,8 +1,8 @@
+import LanguageSwitch from '@/app/[locale]/LanguageSwitch';
 import ThemeMode from '@/app/[locale]/ThemeMode';
 import Navigation from '@/components/layout/Navigation';
 import { MENU } from '@/dummy/Menu';
 import { ReactNode } from 'react';
-import LanguageSwitch from '../LanguageSwitch';
 
 export default function Layout({
   children,

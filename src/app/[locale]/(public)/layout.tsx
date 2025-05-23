@@ -1,6 +1,6 @@
+import LanguageSwitch from '@/app/[locale]/LanguageSwitch';
 import DarkModeToggle from '@/app/[locale]/ThemeMode';
 import { ReactNode } from 'react';
-import LanguageSwitch from '../LanguageSwitch';
 
 export default function Layout({
   children,
