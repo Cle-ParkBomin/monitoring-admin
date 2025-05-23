@@ -1,7 +1,6 @@
-import Calendar from '@/components/headless/Calendar';
+import Calendar, { DateRange } from '@/components/headless/Calendar';
 import useClickOutside from '@/hooks/useClickOutside';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import { DateRange } from '@/types/date';
 import { formatToYYYYMMDD } from '@/utils/date';
 import { useRef, useState } from 'react';
 import { FaRegCalendar } from 'react-icons/fa';

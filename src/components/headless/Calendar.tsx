@@ -1,8 +1,12 @@
 import Button from '@/components/button/Button';
-import { DateRange } from '@/types/date';
 import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { ko } from 'react-day-picker/locale';
+
+export interface DateRange {
+  from: Date | undefined;
+  to?: Date | undefined;
+}
 
 interface CalendarProps {
   value: DateRange;
