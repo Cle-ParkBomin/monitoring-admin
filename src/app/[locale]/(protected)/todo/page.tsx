@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 // 런처 이전
 const list_before = [
+  { isCheck: false, part: 'Front-End', content: 'Table: 스크롤, 50개 씩 보기, pagination 추가' },
   { isCheck: false, part: 'Front-End', content: 'Any Desk 열기' },
   { isCheck: false, part: 'Front-End', content: 'PC 업데이트 정보 비교하기' },
   { isCheck: false, part: 'Front-End', content: '프로그램 종료 여부 표시, 런처 업데이트 버튼' },
