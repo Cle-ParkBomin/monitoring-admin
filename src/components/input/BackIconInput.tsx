@@ -68,7 +68,7 @@ export default function BackIconInput({
       width: 20,
       height: 20,
       color: grey500,
-      margin: 14,
+      margin: size === 'm' ? 14 : 8,
     };
 
     if (isDisabled) {
@@ -76,7 +76,7 @@ export default function BackIconInput({
         width: 20,
         height: 20,
         color: grey300,
-        margin: 14,
+        margin: size === 'm' ? 14 : 8,
       };
     }
 
@@ -92,10 +92,10 @@ export default function BackIconInput({
     <div className='flex flex-1 flex-col gap-1'>
       <div className='flex flex-1 items-center'>
         <div
-          className={`flex flex-1 items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+          className={`border-1 flex flex-1 items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
         >
           <input
-            className={`flex flex-1 text-16 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
+            className={`text-16 flex flex-1 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
             placeholder={placeholder}
             disabled={isDisabled}
             value={value}
@@ -107,7 +107,7 @@ export default function BackIconInput({
         {styledIcon}
       </div>
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (
