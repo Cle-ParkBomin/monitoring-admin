@@ -7,7 +7,12 @@ import { useTranslations } from 'next-intl';
 const list_before = [
   { isCheck: false, part: 'Front-End', content: 'Any Desk 열기' },
   { isCheck: false, part: 'Front-End', content: 'PC 업데이트 정보 비교하기' },
-  { isCheck: false, part: 'Front-End', content: '프로그램 종료 여부 표시' },
+  { isCheck: false, part: 'Front-End', content: '프로그램 종료 여부 표시, 런처 업데이트 버튼' },
+  {
+    isCheck: false,
+    part: 'Front-End',
+    content: '배포도우미 기능 추가: 검색/정렬/필터, 백업 전체 기록 등',
+  },
   { isCheck: false, part: 'Back-End', content: 'menu list 넘기기' },
   { isCheck: false, part: 'Back-End', content: '구글 로그인/회원가입 기능' },
   { isCheck: false, part: 'Back-End', content: '정렬/필터 기능' },
@@ -17,10 +22,16 @@ const list_before = [
 
 // 런처 이후
 const list_after = [
-  { isCheck: false, part: 'Back-End', content: '프로그램 종료/재시작 시, 슬랙 알림' },
   { isCheck: false, part: 'Front-End', content: '로그 정보 확인: 재석님 Docker Container 띄우기' },
+  {
+    isCheck: false,
+    part: 'Front-End',
+    content: 'Table 라벨링 기능 (필요 여부 확인: 개발자가 보기 때문에 오히려 방해가 될 수 있음)',
+  },
+  { isCheck: false, part: 'Back-End', content: '프로그램 종료/재시작 시, 슬랙 알림' },
   { isCheck: false, part: 'Back-End', content: 'Luncher 업데이트 기능' },
   { isCheck: false, part: 'Back-End', content: 'PC 원격 접속' },
+  { isCheck: false, part: 'Back-End', content: '배포 도우미 기능 반영' },
 ];
 
 export default function ToDo() {
