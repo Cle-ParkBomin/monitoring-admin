@@ -14,10 +14,17 @@ export default function Error() {
       <h1>{t('title')}</h1>
       <div className='flex flex-col justify-center gap-4'>
         <p>{t('content')}</p>
-        <div className='flex'>
+        <div className='flex gap-2'>
           <Button
-            value={t('button')}
+            value={t('backButton')}
             onClick={() => router.back()}
+            isIcon
+            icon={<MdOutlineKeyboardReturn />}
+            style='secondary'
+          />
+          <Button
+            value={t('refreshButton')}
+            onClick={() => window.location.reload()}
             isIcon
             icon={<MdOutlineKeyboardReturn />}
             style='secondary'
