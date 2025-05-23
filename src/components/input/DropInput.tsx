@@ -119,7 +119,7 @@ export default function DropInput<T extends string>({
       )}
 
       {isOpen && (
-        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] z-10 max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
           <ul className='animate-fade-in flex flex-1 flex-col gap-1'>
             {valueList.map((item) => (
               <button
