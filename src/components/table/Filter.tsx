@@ -39,7 +39,7 @@ export default function Filter({ filterBody, refetchData }: FilterProps) {
           <p className='border-grey-300 text-grey-700 border-b p-2'>{t('filter')}</p>
 
           {/* body */}
-          <ul className='max-h-72 overflow-y-auto'>
+          <ul>
             {filterBody.map((key) => (
               <li
                 className='border-grey-300 flex flex-col gap-1.5 border-b p-2'
@@ -49,30 +49,6 @@ export default function Filter({ filterBody, refetchData }: FilterProps) {
                 {key.content}
               </li>
             ))}
-
-            {/* 활성화 여부 */}
-            {/*           <CalendarInput
-                  value={filter.date}
-                  setValue={(value: DateRange) =>
-                    setFilter((draft) => {
-                      draft.date = value;
-                    })
-                  }
-                  size='s'
-                /> */}
-            {/* <li className='border-grey-300 flex flex-col gap-1.5 border-b p-2'>
-              <p className='text-grey-700'>{t('license')}</p>
-              <DropInput
-                value={filter.active}
-                valueList={getObjectKeys(ActiveStatusEnum)}
-                onClick={(value) =>
-                  setFilter((draft) => {
-                    draft.active = value;
-                  })
-                }
-                size='s'
-              />
-            </li> */}
           </ul>
 
           {/* footer */}

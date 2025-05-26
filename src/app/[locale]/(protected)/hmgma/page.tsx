@@ -2,8 +2,17 @@
 
 import Badge, { BadgeColor } from '@/components/badge/Badge';
 import Dropdown from '@/components/button/Dropdown';
+import { DateRange } from '@/components/headless/Calendar';
+import CalendarInput from '@/components/headless/CalendarInput';
 import Table from '@/components/table/Table';
-import { HMGMA_DATA, HMGMADataType, LineEnum } from '@/dummy/HMGMA';
+import {
+  HMGMA_DATA,
+  HMGMADataType,
+  LineEnum,
+  PCEnum,
+  PositionEnum,
+  ProcessEnum,
+} from '@/dummy/HMGMA';
 import { getObjectKeys } from '@/utils/object';
 import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
@@ -14,8 +23,30 @@ export default function Home() {
   const t = useTranslations('mockup');
   const [filter, setFilter] = useImmer<{
     line: keyof typeof LineEnum;
+    process: keyof typeof ProcessEnum;
+    position: keyof typeof PositionEnum;
+    pc: keyof typeof PCEnum;
+    isLicense: boolean;
+    isNetwork: boolean;
+    isProgram: boolean;
+    launcherUpdateAt: DateRange;
+    updateAt: DateRange;
   }>({
     line: 'LINE_ONE',
+    process: 'GLASS',
+    position: 'FRONT',
+    pc: 'MAIN',
+    isLicense: true,
+    isNetwork: true,
+    isProgram: true,
+    launcherUpdateAt: {
+      from: new Date(),
+      to: new Date(),
+    },
+    updateAt: {
+      from: new Date(),
+      to: new Date(),
+    },
   });
 
   const refetchData = () => {
@@ -25,6 +56,34 @@ export default function Home() {
 
   const filterBody = [
     {
+      title: t('launcherUpdateAt'),
+      content: (
+        <CalendarInput
+          value={filter.launcherUpdateAt}
+          setValue={(value: DateRange) =>
+            setFilter((draft) => {
+              draft.launcherUpdateAt = value;
+            })
+          }
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('updateAt'),
+      content: (
+        <CalendarInput
+          value={filter.updateAt}
+          setValue={(value: DateRange) =>
+            setFilter((draft) => {
+              draft.updateAt = value;
+            })
+          }
+          size='s'
+        />
+      ),
+    },
+    {
       title: t('line'),
       content: (
         <Dropdown
@@ -33,6 +92,96 @@ export default function Home() {
           onClick={(value) => {
             setFilter((draft) => {
               draft.line = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('process'),
+      content: (
+        <Dropdown
+          value={filter.process}
+          valueList={getObjectKeys(ProcessEnum)}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.process = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('position'),
+      content: (
+        <Dropdown
+          value={filter.position}
+          valueList={getObjectKeys(PositionEnum)}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.position = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('pc'),
+      content: (
+        <Dropdown
+          value={filter.pc}
+          valueList={getObjectKeys(PCEnum)}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.pc = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('isLicense'),
+      content: (
+        <Dropdown
+          value={filter.isLicense}
+          valueList={[true, false]}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.isLicense = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('isNetwork'),
+      content: (
+        <Dropdown
+          value={filter.isNetwork}
+          valueList={[true, false]}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.isNetwork = value;
+            });
+          }}
+          size='s'
+        />
+      ),
+    },
+    {
+      title: t('isProgram'),
+      content: (
+        <Dropdown
+          value={filter.isProgram}
+          valueList={[true, false]}
+          onClick={(value) => {
+            setFilter((draft) => {
+              draft.isProgram = value;
             });
           }}
           size='s'
