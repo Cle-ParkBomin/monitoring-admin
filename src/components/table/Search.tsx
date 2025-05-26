@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 
 interface SearchProps {
-  handleSearch: (value: string) => void;
+  refetchData: (value?: string) => void;
 }
 
-export default function Search({ handleSearch }: SearchProps) {
+export default function Search({ refetchData }: SearchProps) {
   const t = useTranslations('table');
   const [search, setSearch] = useState<string>('');
 
@@ -16,7 +16,7 @@ export default function Search({ handleSearch }: SearchProps) {
       <IconInput
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        icon={<IoMdSearch onClick={() => handleSearch(search)} />}
+        icon={<IoMdSearch onClick={() => refetchData(search)} />}
         placeholder={t('search')}
         size='s'
       />

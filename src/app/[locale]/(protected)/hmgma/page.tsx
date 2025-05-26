@@ -1,12 +1,13 @@
 'use client';
 
 import Badge, { BadgeColor } from '@/components/badge/Badge';
-import DropInput from '@/components/input/DropInput';
+import Dropdown from '@/components/button/Dropdown';
 import Table from '@/components/table/Table';
 import { HMGMA_DATA, HMGMADataType, LineEnum } from '@/dummy/HMGMA';
 import { getObjectKeys } from '@/utils/object';
 import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
+import { HiOutlineSwitchVertical } from 'react-icons/hi';
 import { useImmer } from 'use-immer';
 
 export default function Home() {
@@ -17,8 +18,8 @@ export default function Home() {
     line: 'LINE_ONE',
   });
 
-  const handleSearch = () => {
-    // 검색, 정렬, 필터 기능에 모두 들어갑니다. 재검색 기능
+  const refetchData = () => {
+    // 재검색 기능: 검색, 정렬, 필터, n개씩 기능에 모두 들어갑니다.
     return;
   };
 
@@ -26,7 +27,7 @@ export default function Home() {
     {
       title: t('line'),
       content: (
-        <DropInput
+        <Dropdown
           value={filter.line}
           valueList={getObjectKeys(LineEnum)}
           onClick={(value) => {
@@ -40,7 +41,12 @@ export default function Home() {
     },
   ];
 
-  const renderHeader = (key: keyof HMGMADataType): ReactNode => t(`${key}`);
+  const renderHeader = (key: keyof HMGMADataType): ReactNode => (
+    <>
+      <span className='whitespace-pre-line break-keep'>{t(`${key}`)}</span>
+      <HiOutlineSwitchVertical size={16} className='cursor-pointer' onClick={() => refetchData()} />
+    </>
+  );
 
   const renderCell = (row: HMGMADataType, key: keyof HMGMADataType): ReactNode => {
     const enumColors: Record<string, BadgeColor> = {
@@ -73,8 +79,9 @@ export default function Home() {
 
   return (
     <Table
+      title='HMGMA'
       data={HMGMA_DATA}
-      handleSearch={handleSearch}
+      refetchData={refetchData}
       filterBody={filterBody}
       renderHeader={renderHeader}
       renderCell={renderCell}

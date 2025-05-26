@@ -13,13 +13,19 @@ export default function TableBody<T extends { id: number }>({
   const keys = getObjectKeys(data[0]);
 
   return (
-    <tbody className='border-grey-300 leading-24 border'>
-      {data.map((row) => (
-        <tr key={`table_row_${row.id}`} className=''>
+    <tbody
+      className='border-grey-300 leading-24 overflow-auto border'
+      style={{ height: `calc(100vh - 480px)` }}
+    >
+      {data.map((row, index) => (
+        <tr
+          className={`border-grey-200 flex ${index !== data.length - 1 && 'border-b'}`}
+          key={`table_row_${row.id}`}
+        >
           {keys.map((key) => (
             <td
               key={`${String(key)}_${String(row[key])}`}
-              className='m-w-fit border-grey-200 border-b px-3 py-2.5'
+              className='flex flex-1 items-center px-3 py-2.5'
             >
               {renderCell(row, key)}
             </td>

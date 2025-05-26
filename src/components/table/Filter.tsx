@@ -6,10 +6,10 @@ import { IoFilter } from 'react-icons/io5';
 
 interface FilterProps {
   filterBody: { title: string; content: ReactNode }[];
-  handleSearch: (value: string) => void;
+  refetchData: (value?: string) => void;
 }
 
-export default function Filter({ filterBody, handleSearch }: FilterProps) {
+export default function Filter({ filterBody, refetchData }: FilterProps) {
   const filterRef = useRef<HTMLDivElement>(null);
   const t = useTranslations('table');
 
@@ -81,7 +81,12 @@ export default function Filter({ filterBody, handleSearch }: FilterProps) {
               <Button value={t('reset')} style='outline' size='s' />
             </div>
             <div className='flex w-20'>
-              <Button value={t('search')} style='secondary' size='s' onClick={() => handleSearch} />
+              <Button
+                value={t('search')}
+                style='secondary'
+                size='s'
+                onClick={() => refetchData()}
+              />
             </div>
           </div>
         </div>
