@@ -39,7 +39,6 @@ export interface HMGMADataType {
   isNetwork: boolean;
   isProgram: boolean;
   launcherUpdateAt: string;
-  updateAt: string;
 }
 
 // Mockup Data
@@ -56,7 +55,23 @@ export const Brain: HMGMADataType = {
   isNetwork: true, // 통신 가능 유무
   isProgram: true, // 프로그램 종료 여부
   launcherUpdateAt: '2025-05-22 00:00', // 런처 업데이트 일시
-  updateAt: '2025-05-22 00:00', // 정보 업데이트 일시
+};
+
+// Detail
+
+export const HMAGMA_DETAIL: HMGMADataType = {
+  id: 0,
+  line: LineEnum.LINE_ONE,
+  process: ProcessEnum.GLASS,
+  position: PositionEnum.FRONT,
+  pc: PCEnum.MAIN,
+  serialNumber: '00000000-00',
+  anyDeskIP: '1 131 098 141',
+  ipv4Address: '000.000.000.00',
+  isLicense: true,
+  isNetwork: true,
+  isProgram: true,
+  launcherUpdateAt: '0000-00-00 00:00',
 };
 
 export const SystemPerformance = {
@@ -227,8 +242,33 @@ export const deployAssistant = [
     updateAt: '03/21/2024 7:47:04 PM',
     hash: '1DA4...',
   },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployed: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployed: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployed: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
 ];
 
+// List
 export const HMGMA_DATA: HMGMADataType[] = [
   {
     id: 0,
@@ -243,7 +283,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 1,
@@ -258,7 +297,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 2,
@@ -273,7 +311,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: false,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 3,
@@ -288,7 +325,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: false,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 4,
@@ -303,7 +339,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: false,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 5,
@@ -318,7 +353,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 6,
@@ -333,7 +367,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 7,
@@ -348,7 +381,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 8,
@@ -363,7 +395,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 9,
@@ -378,7 +409,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 10,
@@ -393,7 +423,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 11,
@@ -408,7 +437,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 12,
@@ -423,7 +451,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 13,
@@ -438,7 +465,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 14,
@@ -453,7 +479,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 15,
@@ -468,7 +493,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 16,
@@ -483,7 +507,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 17,
@@ -498,7 +521,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 18,
@@ -513,7 +535,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 19,
@@ -528,7 +549,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 20,
@@ -543,7 +563,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 21,
@@ -558,7 +577,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 22,
@@ -573,7 +591,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 23,
@@ -588,7 +605,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 24,
@@ -603,7 +619,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 25,
@@ -618,7 +633,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 26,
@@ -633,7 +647,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 27,
@@ -648,7 +661,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 28,
@@ -663,7 +675,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 29,
@@ -678,7 +689,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 30,
@@ -693,7 +703,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 31,
@@ -708,7 +717,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 32,
@@ -723,7 +731,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 33,
@@ -738,7 +745,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 34,
@@ -753,7 +759,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 35,
@@ -768,7 +773,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 36,
@@ -783,7 +787,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 37,
@@ -798,7 +801,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 38,
@@ -813,7 +815,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 39,
@@ -828,7 +829,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 40,
@@ -843,7 +843,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 41,
@@ -858,7 +857,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 42,
@@ -873,7 +871,6 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
   {
     id: 43,
@@ -888,6 +885,5 @@ export const HMGMA_DATA: HMGMADataType[] = [
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: '0000-00-00 00:00',
-    updateAt: '0000-00-00 00:00',
   },
 ];

@@ -21,7 +21,6 @@ declare const messages: {
     isNetwork: 'Network Connectivity';
     isProgram: 'Program Status';
     launcherUpdateAt: 'Launcher Updated';
-    updateAt: 'DB Updated';
   };
   table: {
     search: 'Search';
@@ -54,6 +53,7 @@ declare const messages: {
   hmgma: {
     'clipboard-success': 'Copied {key} to clipboard successfully.';
     'clipboard-error': 'Failed {key} to copy to clipboard.';
+    'feature-unavailable': '{feature} feature is not yet implemented.';
   };
 };
 export default messages;

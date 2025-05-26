@@ -63,7 +63,7 @@ export default function Button({
   return (
     <button
       className={`flex flex-1 items-center justify-center gap-1 rounded-lg ${variantStyle[variantKey].button} ${sizeStyle[size].button}`}
-      disabled={isDisabled}
+      disabled={isDisabled || isLoading}
       onClick={onClick}
     >
       {isLoading ? <LoadingIcon /> : <p className='whitespace-nowrap'>{value}</p>}

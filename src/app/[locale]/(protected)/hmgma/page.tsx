@@ -1,6 +1,7 @@
 'use client';
 
 import Badge, { BadgeColor } from '@/components/badge/Badge';
+import Button from '@/components/button/Button';
 import Dropdown from '@/components/button/Dropdown';
 import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
@@ -40,7 +41,6 @@ export default function HMGMAPage() {
     isNetwork: boolean;
     isProgram: boolean;
     launcherUpdateAt: DateRange;
-    updateAt: DateRange;
   }>({
     line: 'LINE_ONE',
     process: 'GLASS',
@@ -50,10 +50,6 @@ export default function HMGMAPage() {
     isNetwork: true,
     isProgram: true,
     launcherUpdateAt: {
-      from: new Date(),
-      to: new Date(),
-    },
-    updateAt: {
       from: new Date(),
       to: new Date(),
     },
@@ -88,20 +84,6 @@ export default function HMGMAPage() {
           setValue={(value: DateRange) =>
             setFilter((draft) => {
               draft.launcherUpdateAt = value;
-            })
-          }
-          size='s'
-        />
-      ),
-    },
-    {
-      title: t('updateAt'),
-      content: (
-        <CalendarInput
-          value={filter.updateAt}
-          setValue={(value: DateRange) =>
-            setFilter((draft) => {
-              draft.updateAt = value;
             })
           }
           size='s'
@@ -286,6 +268,23 @@ export default function HMGMAPage() {
           >
             {row[key].toString()}
           </p>
+        );
+
+      case 'launcherUpdateAt':
+        return (
+          <div className='flex flex-col gap-1'>
+            <p>{row[key].toString()}</p>
+            <Button
+              value='Update'
+              size='s'
+              onClick={() => {
+                setToast((draft) => {
+                  draft.visible = true;
+                  draft.text = tHMGMA('feature-unavailable', { feature: 'Launcher Update' });
+                });
+              }}
+            />
+          </div>
         );
 
       default:
