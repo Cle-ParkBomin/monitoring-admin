@@ -1,4 +1,5 @@
 import DropButton from '@/components/button/DropButton';
+import Dropdown from '@/components/button/Dropdown';
 import { useState } from 'react';
 
 export default function DropButtonView() {
@@ -9,13 +10,54 @@ export default function DropButtonView() {
     <div className='flex flex-col gap-4'>
       {/* Drop Button */}
       <h2>Drop Button</h2>
-      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-12 rounded-s-lg p-4'>
+      <div className='border-1 border-grey-300 flex flex-1 flex-wrap justify-between gap-12 rounded-s-lg p-4'>
         <DropButton
           title='Button'
           value={value}
           valueList={valueList}
           onClick={(item: string) => setValue(item)}
         />
+        <div className='flex flex-col gap-4'>
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+          />
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+            style='blue'
+          />
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+            style='ghost'
+          />
+        </div>
+        <div className='flex flex-col gap-4'>
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+            size='s'
+          />
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+            style='blue'
+            size='s'
+          />
+          <Dropdown
+            value={value}
+            valueList={valueList}
+            onClick={(item: string) => setValue(item)}
+            style='ghost'
+            size='s'
+          />
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import { FaCheck } from 'react-icons/fa6';
 
-interface DropLineTextFieldProps<T extends string> {
+interface DropLineTextFieldProps<T> {
   value: T; // 선택된 값
   valueList: T[]; // 선택지 목록
   onClick: (value: T) => void; // 선택된 값 변경 핸들러
@@ -13,7 +13,7 @@ interface DropLineTextFieldProps<T extends string> {
   style?: 'default' | 'line' | 'gray' | 'blue';
 }
 
-export default function DropLineTextField<T extends string>({
+export default function DropLineTextField<T>({
   value,
   valueList,
   onClick,
@@ -80,7 +80,7 @@ export default function DropLineTextField<T extends string>({
       >
         <textarea
           className={`flex flex-1 resize-none outline-none ${variantStyle[variantKey].textarea}`}
-          value={value}
+          value={String(value)}
           placeholder={placeholder}
           disabled={isDisabled}
           rows={1}
@@ -98,12 +98,13 @@ export default function DropLineTextField<T extends string>({
           <ul className='animate-fade-in flex flex-col gap-1'>
             {valueList.map((item) => (
               <button
-                key={item}
+                key={String(item)}
                 className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 ${item === value && variantStyle[variantKey].button}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}
               >
+                <p>{String(item)}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}

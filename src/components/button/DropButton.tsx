@@ -2,7 +2,7 @@ import useClickOutside from '@/hooks/useClickOutside';
 import { useRef, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 
-interface DropButtonProps<T extends string> {
+interface DropButtonProps<T> {
   title: string;
   value: T;
   valueList: T[];
@@ -10,7 +10,7 @@ interface DropButtonProps<T extends string> {
   size?: 'm' | 's';
 }
 
-export default function DropButton<T extends string>({
+export default function DropButton<T>({
   title,
   value,
   valueList,
@@ -53,11 +53,11 @@ export default function DropButton<T extends string>({
         >
           {valueList.map((item) => (
             <button
-              key={item}
+              key={String(item)}
               className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center gap-1 ${item === value && 'text-primary-500 hover:text-primary-600'} ${sizeStyle[size]}`}
               onClick={() => handleClickOption(item)}
             >
-              <p>{item}</p>
+              <p>{String(item)}</p>
               {item === value && <FaCheck size={16} />}
             </button>
           ))}
