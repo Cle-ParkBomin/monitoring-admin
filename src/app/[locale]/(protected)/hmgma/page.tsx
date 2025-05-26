@@ -23,6 +23,7 @@ import { useImmer } from 'use-immer';
 
 export default function HMGMAPage() {
   const t = useTranslations('mockup');
+  const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
 
   const [filter, setFilter] = useImmer<{
@@ -56,6 +57,15 @@ export default function HMGMAPage() {
   const refetchData = () => {
     // 재검색 기능: 검색, 정렬, 필터, n개씩 기능에 모두 들어갑니다.
     return;
+  };
+
+  const handleCopy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert(tHMGMA('clipboard-success'));
+    } catch {
+      alert(tHMGMA('clipboard-error'));
+    }
   };
 
   const filterBody = [
@@ -234,6 +244,17 @@ export default function HMGMAPage() {
       case 'position':
       case 'pc':
         return <Badge value={row[key].toString()} color={enumColors[row[key].toString()]} />;
+
+      case 'anyDeskIP':
+        return (
+          <LinkButton
+            value={row[key].toString()}
+            onClick={() => {
+              void handleCopy(row[key].toString());
+              window.location.href = `anydesk:${row[key]}`;
+            }}
+          />
+        );
 
       case 'isLicense':
       case 'isNetwork':

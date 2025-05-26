@@ -47,5 +47,9 @@
     "title": "해야 할 일",
     "sub-title-1": "런처 작업 이전",
     "sub-title-2": "런처 작업 이후"
+  },
+  "hmgma": {
+    "clipboard-success": "클립보드에 복사되었습니다.",
+    "clipboard-error": "클립보드 복사에 실패했습니다."
   }
 }
