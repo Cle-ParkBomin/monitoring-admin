@@ -2,6 +2,7 @@
 
 import Badge, { BadgeColor } from '@/components/badge/Badge';
 import Dropdown from '@/components/button/Dropdown';
+import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
 import Table from '@/components/table/Table';
@@ -15,12 +16,15 @@ import {
 } from '@/dummy/HMGMA';
 import { getObjectKeys } from '@/utils/object';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
 import { useImmer } from 'use-immer';
 
-export default function Home() {
+export default function HMGMAPage() {
   const t = useTranslations('mockup');
+  const router = useRouter();
+
   const [filter, setFilter] = useImmer<{
     line: keyof typeof LineEnum;
     process: keyof typeof ProcessEnum;
@@ -215,11 +219,32 @@ export default function Home() {
     };
 
     switch (key) {
+      case 'id':
+        return (
+          <LinkButton
+            value={row[key].toString()}
+            onClick={() => {
+              router.push(`/hmgma/${row[key]}`);
+            }}
+          />
+        );
+
       case 'line':
       case 'process':
       case 'position':
       case 'pc':
         return <Badge value={row[key].toString()} color={enumColors[row[key].toString()]} />;
+
+      case 'isLicense':
+      case 'isNetwork':
+      case 'isProgram':
+        return (
+          <p
+            className={`flex h-full flex-1 items-center p-2 ${row[key] === false && 'bg-primary-100 text-primary-600'}`}
+          >
+            {row[key].toString()}
+          </p>
+        );
 
       default:
         return row[key].toString();
