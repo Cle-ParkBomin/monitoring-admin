@@ -52,8 +52,8 @@ declare const messages: {
     'sub-title-2': 'After Luncher';
   };
   hmgma: {
-    'clipboard-success': 'Copied to clipboard successfully.';
-    'clipboard-error': 'Failed to copy to clipboard.';
+    'clipboard-success': 'Copied {key} to clipboard successfully.';
+    'clipboard-error': 'Failed {key} to copy to clipboard.';
   };
 };
 export default messages;

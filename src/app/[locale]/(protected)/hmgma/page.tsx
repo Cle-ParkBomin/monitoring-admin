@@ -5,6 +5,7 @@ import Dropdown from '@/components/button/Dropdown';
 import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
+import Toast from '@/components/modal/Toast';
 import Table from '@/components/table/Table';
 import {
   HMGMA_DATA,
@@ -26,6 +27,10 @@ export default function HMGMAPage() {
   const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
 
+  const [toast, setToast] = useImmer({
+    visible: false,
+    text: '',
+  });
   const [filter, setFilter] = useImmer<{
     line: keyof typeof LineEnum;
     process: keyof typeof ProcessEnum;
@@ -59,12 +64,18 @@ export default function HMGMAPage() {
     return;
   };
 
-  const handleCopy = async (text: string) => {
+  const handleCopy = async (key: string, text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert(tHMGMA('clipboard-success'));
+      setToast((draft) => {
+        draft.visible = true;
+        draft.text = tHMGMA('clipboard-success', { key: key });
+      });
     } catch {
-      alert(tHMGMA('clipboard-error'));
+      setToast((draft) => {
+        draft.visible = true;
+        draft.text = tHMGMA('clipboard-error', { key: key });
+      });
     }
   };
 
@@ -250,8 +261,18 @@ export default function HMGMAPage() {
           <LinkButton
             value={row[key].toString()}
             onClick={() => {
-              void handleCopy(row[key].toString());
+              void handleCopy(t('anyDeskIP'), row[key].toString());
               window.location.href = `anydesk:${row[key]}`;
+            }}
+          />
+        );
+
+      case 'ipv4Address':
+        return (
+          <LinkButton
+            value={row[key].toString()}
+            onClick={() => {
+              void handleCopy(t('ipv4Address'), row[key].toString());
             }}
           />
         );
@@ -273,13 +294,24 @@ export default function HMGMAPage() {
   };
 
   return (
-    <Table
-      title='HMGMA'
-      data={HMGMA_DATA}
-      refetchData={refetchData}
-      filterBody={filterBody}
-      renderHeader={renderHeader}
-      renderCell={renderCell}
-    />
+    <>
+      <Table
+        title='HMGMA'
+        data={HMGMA_DATA}
+        refetchData={refetchData}
+        filterBody={filterBody}
+        renderHeader={renderHeader}
+        renderCell={renderCell}
+      />
+      <Toast
+        visible={toast.visible}
+        setVisible={(visible: boolean) =>
+          setToast((draft) => {
+            draft.visible = visible;
+          })
+        }
+        text={toast.text}
+      />
+    </>
   );
 }

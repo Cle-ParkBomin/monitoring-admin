@@ -49,7 +49,7 @@
     "sub-title-2": "런처 작업 이후"
   },
   "hmgma": {
-    "clipboard-success": "클립보드에 복사되었습니다.",
-    "clipboard-error": "클립보드 복사에 실패했습니다."
+    "clipboard-success": "{key}가 클립보드에 복사되었습니다.",
+    "clipboard-error": "{key}가 클립보드 복사에 실패했습니다."
   }
 }
