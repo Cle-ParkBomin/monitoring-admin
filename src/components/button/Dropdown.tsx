@@ -87,7 +87,10 @@ export default function Dropdown<T>({
       </div>
 
       {isOpen && (
-        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] z-10 max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
+        <div
+          className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 z-10 max-h-48 w-[100%] overflow-auto rounded-sm border p-1'
+          style={{ top: `calc(100% + 4px)` }}
+        >
           <ul className='animate-fade-in flex flex-1 flex-col gap-1'>
             {valueList.map((item) => (
               <button

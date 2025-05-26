@@ -37,26 +37,32 @@ export default function DropButtonView() {
           />
         </div>
         <div className='flex flex-col gap-4'>
-          <Dropdown
-            value={value}
-            valueList={valueList}
-            onClick={(item: string) => setValue(item)}
-            size='s'
-          />
-          <Dropdown
-            value={value}
-            valueList={valueList}
-            onClick={(item: string) => setValue(item)}
-            style='blue'
-            size='s'
-          />
-          <Dropdown
-            value={value}
-            valueList={valueList}
-            onClick={(item: string) => setValue(item)}
-            style='ghost'
-            size='s'
-          />
+          <div>
+            <Dropdown
+              value={value}
+              valueList={valueList}
+              onClick={(item: string) => setValue(item)}
+              size='s'
+            />
+          </div>
+          <div>
+            <Dropdown
+              value={value}
+              valueList={valueList}
+              onClick={(item: string) => setValue(item)}
+              style='blue'
+              size='s'
+            />
+          </div>
+          <div>
+            <Dropdown
+              value={value}
+              valueList={valueList}
+              onClick={(item: string) => setValue(item)}
+              style='ghost'
+              size='s'
+            />
+          </div>
         </div>
       </div>
     </div>
