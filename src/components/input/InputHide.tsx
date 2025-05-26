@@ -1,9 +1,10 @@
 'use client';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, KeyboardEvent, useState } from 'react';
 
 interface InputHideProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
   size?: 'm' | 's';
   style?: 'default' | 'primary';
@@ -12,6 +13,7 @@ interface InputHideProps {
 export default function InputHide({
   value,
   onChange,
+  onKeyDown,
   placeholder = 'Text',
   size = 'm',
   style = 'default',
@@ -31,12 +33,13 @@ export default function InputHide({
 
   return (
     <input
-      className={`flex rounded-sm border-1 border-none text-16 caret-blue-500 outline-0 placeholder:text-grey-500 ${variantStyle[variantKey]} ${sizeStyle[size]}`}
+      className={`border-1 text-16 placeholder:text-grey-500 flex rounded-sm border-none caret-blue-500 outline-0 ${variantStyle[variantKey]} ${sizeStyle[size]}`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
+      onKeyDown={onKeyDown}
     />
   );
 }

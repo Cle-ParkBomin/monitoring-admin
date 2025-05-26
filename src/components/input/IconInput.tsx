@@ -1,11 +1,12 @@
 'use client';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import React, { ChangeEventHandler, JSX, useState } from 'react';
+import React, { ChangeEventHandler, JSX, KeyboardEvent, useState } from 'react';
 
 interface IconInputProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   icon: JSX.Element; // 아이콘 컴포넌트 (아이콘 클릭 시 이벤트 함수 전달)
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
   isError?: boolean;
   errorMessage?: string;
@@ -18,6 +19,7 @@ export default function IconInput({
   value,
   onChange,
   icon,
+  onKeyDown,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -96,22 +98,23 @@ export default function IconInput({
   return (
     <div className='flex flex-1 flex-col gap-1'>
       <div
-        className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+        className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
       >
         <input
-          className={`flex flex-1 text-16 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           disabled={isDisabled}
           value={value}
           onChange={onChange}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
+          onKeyDown={onKeyDown}
         />
         {styledIcon}
       </div>
 
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (

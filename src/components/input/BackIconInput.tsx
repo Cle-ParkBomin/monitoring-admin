@@ -1,11 +1,12 @@
 'use client';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import React, { ChangeEventHandler, JSX, useState } from 'react';
+import React, { ChangeEventHandler, JSX, KeyboardEvent, useState } from 'react';
 
 interface BackIconInputProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   icon: JSX.Element; // 아이콘 컴포넌트 (아이콘 클릭 시 이벤트 함수 전달)
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
   isError?: boolean;
   errorMessage?: string;
@@ -18,6 +19,7 @@ export default function BackIconInput({
   value,
   onChange,
   icon,
+  onKeyDown,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -102,6 +104,7 @@ export default function BackIconInput({
             onChange={onChange}
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
+            onKeyDown={onKeyDown}
           />
         </div>
         {styledIcon}

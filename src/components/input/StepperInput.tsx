@@ -1,12 +1,13 @@
 'use client';
 import { useColorByTheme } from '@/hooks/useColorByTheme';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, KeyboardEvent, useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { RxDividerVertical } from 'react-icons/rx';
 
 interface StepperInputProps {
   value: number;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
   isError?: boolean;
   errorMessage?: string;
@@ -20,6 +21,7 @@ interface StepperInputProps {
 export default function StepperInput({
   value,
   onChange,
+  onKeyDown,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -70,10 +72,10 @@ export default function StepperInput({
   return (
     <div className='flex flex-1 flex-col gap-1'>
       <div
-        className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+        className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
       >
         <input
-          className={`flex flex-1 text-16 caret-blue-500 outline-0 $${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 caret-blue-500 outline-0 $${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           disabled={isDisabled}
           value={value}
@@ -81,6 +83,7 @@ export default function StepperInput({
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           type='number'
+          onKeyDown={onKeyDown}
         />
         <div className='flex items-center'>
           <AiOutlineMinus
@@ -105,7 +108,7 @@ export default function StepperInput({
         </div>
       </div>
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (

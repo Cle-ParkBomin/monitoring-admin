@@ -1,9 +1,10 @@
 'use client';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, KeyboardEvent, useState } from 'react';
 
 interface InputProps {
   value: string; // 입력값
   onChange: ChangeEventHandler<HTMLInputElement>; // 입력값 변경 핸들러
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   isDisabled?: boolean; // 입력 비활성화 여부
   isError?: boolean; // 에러 상태 여부
   errorMessage?: string; // 에러 메시지 (에러 상태일 때만 표시)
@@ -15,6 +16,7 @@ interface InputProps {
 export default function Input({
   value,
   onChange,
+  onKeyDown,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -59,20 +61,21 @@ export default function Input({
   return (
     <div className='flex flex-1 flex-col gap-1'>
       <div
-        className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+        className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
       >
         <input
-          className={`flex flex-1 text-16 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           disabled={isDisabled}
           value={value}
           onChange={onChange}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
+          onKeyDown={onKeyDown}
         />
       </div>
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (

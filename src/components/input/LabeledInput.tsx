@@ -1,10 +1,11 @@
 'use client';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, KeyboardEvent, useState } from 'react';
 
 interface LabeledInputProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   label: string;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
   isDisabled?: boolean;
   isError?: boolean;
   errorMessage?: string;
@@ -17,6 +18,7 @@ export default function LabeledInput({
   value,
   onChange,
   label,
+  onKeyDown,
   isDisabled = false,
   isError = false,
   errorMessage,
@@ -61,21 +63,22 @@ export default function LabeledInput({
   return (
     <div className='flex flex-1 flex-col gap-1'>
       <div
-        className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+        className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
       >
         <input
-          className={`flex flex-1 text-16 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 caret-blue-500 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           disabled={isDisabled}
           value={value}
           onChange={onChange}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
+          onKeyDown={onKeyDown}
         />
         <span className='text-grey-500'>{label}</span>
       </div>
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (
