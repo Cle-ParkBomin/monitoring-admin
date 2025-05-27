@@ -66,7 +66,7 @@ const eslintConfig = [
       'react/jsx-no-constructed-context-values': 'error', // 렌더링 시 생성되는 Context 값 사용 금지
       'react/no-unstable-nested-components': 'error', // 불안정한 중첩 컴포넌트 사용 금지
       'react/jsx-no-useless-fragment': 'warn', // 불필요한 Fragment 사용 경고
-      'react/no-array-index-key': 'warn', // 배열 index를 key로 사용하는 것에 대한 경고
+      'react/no-array-index-key': 'off', // 배열 index를 key로 사용하는 것에 대한 경고
       'react/no-danger': 'warn', // dangerouslySetInnerHTML 사용에 대한 경고
       'react/no-deprecated': 'warn', // deprecated된 React API 사용에 대한 경고
       'react/no-direct-mutation-state': 'warn', // state 직접 수정 금지
