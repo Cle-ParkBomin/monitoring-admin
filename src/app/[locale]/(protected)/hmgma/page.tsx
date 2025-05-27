@@ -6,7 +6,7 @@ import Dropdown from '@/components/button/Dropdown';
 import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
-import Table from '@/components/table/Table';
+import ListTable from '@/components/table/ListTable';
 import {
   enumColors,
   HMGMA_DATA,
@@ -185,8 +185,12 @@ export default function HMGMAPage() {
 
   const renderHeader = (key: keyof HMGMADataType): ReactNode => (
     <>
-      <span className='whitespace-pre-line break-keep'>{t(`${key}`)}</span>
-      <HiOutlineSwitchVertical size={16} className='cursor-pointer' onClick={() => refetchData()} />
+      <span>{t(`${key}`)}</span>
+      <HiOutlineSwitchVertical
+        size={16}
+        className='shrink-0 cursor-pointer'
+        onClick={() => refetchData()}
+      />
     </>
   );
 
@@ -265,7 +269,7 @@ export default function HMGMAPage() {
   };
 
   return (
-    <Table
+    <ListTable
       title='HMGMA'
       data={HMGMA_DATA}
       refetchData={refetchData}

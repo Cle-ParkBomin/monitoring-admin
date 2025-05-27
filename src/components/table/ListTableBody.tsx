@@ -1,12 +1,15 @@
 import { getObjectKeys } from '@/utils/object';
 import { ReactNode } from 'react';
 
-interface TableBodyProps<T extends object> {
+interface ListTableBodyProps<T extends object> {
   data: T[];
   renderCell: (row: T, key: keyof T) => ReactNode;
 }
 
-export default function TableBody<T extends object>({ data, renderCell }: TableBodyProps<T>) {
+export default function ListTableBody<T extends object>({
+  data,
+  renderCell,
+}: ListTableBodyProps<T>) {
   const keys = getObjectKeys(data[0]);
 
   return (

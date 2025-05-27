@@ -1,12 +1,12 @@
 import Dropdown from '@/components/button/Dropdown';
 import Filter from '@/components/table/Filter';
+import ListTableBody from '@/components/table/ListTableBody';
 import Pagination from '@/components/table/Pagination';
 import Search from '@/components/table/Search';
-import TableBody from '@/components/table/TableBody';
 import TableHeader from '@/components/table/TableHeader';
 import { ReactNode, useState } from 'react';
 
-interface TableProps<T extends object> {
+interface ListTableProps<T extends object> {
   title: string;
   data: T[];
   filterBody: { title: string; content: ReactNode }[];
@@ -15,14 +15,14 @@ interface TableProps<T extends object> {
   renderCell: (row: T, key: keyof T) => ReactNode;
 }
 
-export default function Table<T extends object>({
+export default function ListTable<T extends object>({
   title,
   data,
   filterBody,
   refetchData,
   renderHeader,
   renderCell,
-}: TableProps<T>) {
+}: ListTableProps<T>) {
   const PAGE_SIZE_LIST = [30, 50, 100];
   const [pageSize, setPageSize] = useState<number>(50);
   const [selectPage, setSelectPage] = useState<number>(1);
@@ -60,7 +60,7 @@ export default function Table<T extends object>({
 
       <table className='flex flex-col px-1 text-left'>
         <TableHeader data={data} renderHeader={renderHeader} />
-        <TableBody data={data} renderCell={renderCell} />
+        <ListTableBody data={data} renderCell={renderCell} />
       </table>
 
       <Pagination selectPage={selectPage} setSelectPage={setSelectPage} totalPages={1} />
