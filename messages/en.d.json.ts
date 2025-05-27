@@ -30,6 +30,10 @@ declare const messages: {
     license: 'License';
     reset: 'Reset';
   };
+  modal: {
+    cancelLabel: 'Cancel';
+    confirmLabel: 'Confirm';
+  };
   root: {
     'theme-mode': 'Dark Mode';
     'language-switch': 'Language';
@@ -54,6 +58,7 @@ declare const messages: {
     'clipboard-success': 'Copied {key} to clipboard successfully.';
     'clipboard-error': 'Failed {key} to copy to clipboard.';
     'feature-unavailable': '{feature} feature is not yet implemented.';
+    'default-information': 'Default Information';
   };
 };
 export default messages;

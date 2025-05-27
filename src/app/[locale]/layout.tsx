@@ -1,6 +1,11 @@
 import '@/app/[locale]/globals.css';
 import Footer from '@/components/layout/Footer';
+import Modal from '@/components/modal/Modal';
+import Popup from '@/components/modal/Popup';
+import ProgressModal from '@/components/modal/ProgressModal';
+import Toast from '@/components/modal/Toast';
 import { routing } from '@/i18n/routing';
+import { Provider } from 'jotai';
 
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -27,12 +32,18 @@ export default async function RootLayout({
   return (
     <html lang={locale} className='bg-background relative'>
       <body className='min-w-3xl flex h-screen flex-col justify-between px-40 pt-9'>
-        <main className='flex flex-1 flex-col'>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        </main>
-        <footer className='my-10'>
-          <Footer />
-        </footer>
+        <Provider>
+          <NextIntlClientProvider>
+            <main className='flex flex-1 flex-col'>{children}</main>
+            <footer className='my-10'>
+              <Footer />
+            </footer>
+            <Modal />
+            <Popup />
+            <ProgressModal />
+            <Toast />
+          </NextIntlClientProvider>
+        </Provider>
       </body>
     </html>
   );

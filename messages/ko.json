@@ -19,6 +19,10 @@
     "isProgram": "프로그램 종료 여부",
     "launcherUpdateAt": "런처 업데이트 일시"
   },
+  "modal": {
+    "cancelLabel": "취소",
+    "confirmLabel": "확인"
+  },
   "table": {
     "search": "검색",
     "sort": "정렬",
@@ -50,6 +54,7 @@
   "hmgma": {
     "clipboard-success": "{key}가 클립보드에 복사되었습니다.",
     "clipboard-error": "{key}가 클립보드 복사에 실패했습니다.",
-    "feature-unavailable": "{feature} 기능은 아직 구현되지 않았습니다."
+    "feature-unavailable": "{feature} 기능은 아직 구현되지 않았습니다.",
+    "default-information": "기본 정보"
   }
 }
