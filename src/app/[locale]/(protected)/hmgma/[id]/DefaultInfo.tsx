@@ -52,10 +52,17 @@ export default function DefaultInfo() {
 
       case 'isLicense':
       case 'isNetwork':
-      case 'isProgram':
         return (
           <p
             className={`flex h-full flex-1 items-center p-2 ${value === false && 'bg-primary-100 text-primary-600'}`}
+          >
+            {value.toString()}
+          </p>
+        );
+      case 'isProgram':
+        return (
+          <p
+            className={`flex h-full flex-1 items-center p-2 ${value === true && 'bg-primary-100 text-primary-600'}`}
           >
             {value.toString()}
           </p>
@@ -66,7 +73,7 @@ export default function DefaultInfo() {
           <div className='flex flex-col gap-1'>
             <p>{value.toString()}</p>
             <Button
-              value='Update'
+              value={tHMGMA('update-button')}
               size='s'
               onClick={() => {
                 setToast({

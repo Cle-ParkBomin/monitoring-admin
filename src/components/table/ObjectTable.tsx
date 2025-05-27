@@ -28,7 +28,7 @@ export default function ObjectTable<T extends object>({
 
   return (
     <table className='flex flex-col gap-2'>
-      <h3 className='text-grey-800'>{title}</h3>
+      <caption className='text-16 leading-24 font-700 text-grey-800 text-left'>{title}</caption>
 
       <tbody className='border-grey-300 border'>
         {chunkedData.map((rowItems, rowIndex) => {

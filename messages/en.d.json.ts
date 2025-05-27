@@ -66,6 +66,7 @@ declare const messages: {
     'feature-unavailable': '{feature} feature is not yet implemented.';
     'default-information': 'Default Information';
     'deploy-assistant': 'Deploy Assistant';
+    'update-button': 'Update';
   };
 };
 export default messages;

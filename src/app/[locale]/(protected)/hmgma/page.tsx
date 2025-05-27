@@ -235,10 +235,18 @@ export default function HMGMAPage() {
 
       case 'isLicense':
       case 'isNetwork':
-      case 'isProgram':
         return (
           <p
             className={`flex h-full flex-1 items-center p-2 ${row[key] === false && 'bg-primary-100 text-primary-600'}`}
+          >
+            {row[key].toString()}
+          </p>
+        );
+
+      case 'isProgram':
+        return (
+          <p
+            className={`flex h-full flex-1 items-center p-2 ${row[key] === true && 'bg-primary-100 text-primary-600'}`}
           >
             {row[key].toString()}
           </p>
@@ -249,7 +257,7 @@ export default function HMGMAPage() {
           <div className='flex flex-col gap-1'>
             <p>{row[key].toString()}</p>
             <Button
-              value='Update'
+              value={tHMGMA('update-button')}
               size='s'
               onClick={() => {
                 setToast({

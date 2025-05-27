@@ -62,6 +62,7 @@
     "clipboard-error": "{key}가 클립보드 복사에 실패했습니다.",
     "feature-unavailable": "{feature} 기능은 아직 구현되지 않았습니다.",
     "default-information": "기본 정보",
-    "deploy-assistant": "배포 도우미"
+    "deploy-assistant": "배포 도우미",
+    "update-button": "업데이트"
   }
 }
