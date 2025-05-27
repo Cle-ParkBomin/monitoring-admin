@@ -6,6 +6,7 @@ interface ObjectTableProps<T extends object> {
   data: T;
   renderKey: (key: keyof T) => ReactNode;
   renderValue: (key: keyof T, value: T[keyof T]) => ReactNode;
+  rowCount?: number;
 }
 
 function chunk<T>(arr: T[], size: number): T[][] {
@@ -21,31 +22,33 @@ export default function ObjectTable<T extends object>({
   data,
   renderKey,
   renderValue,
+  rowCount = 5,
 }: ObjectTableProps<T>) {
-  const ROW_COUNT = 4;
   const arrayData = getObjectEntries(data);
-  const chunkedData = chunk(arrayData, ROW_COUNT);
+  const chunkedData = chunk(arrayData, rowCount);
 
   return (
-    <table className='flex flex-col gap-2'>
-      <caption className='text-16 leading-24 font-700 text-grey-800 text-left'>{title}</caption>
+    <table>
+      <caption className='text-16 leading-24 font-700 text-grey-800 mb-5 text-left'>
+        {title}
+      </caption>
 
       <tbody className='border-grey-300 border'>
         {chunkedData.map((rowItems, rowIndex) => {
-          const fillCount: number = ROW_COUNT - rowItems.length;
+          const fillCount: number = rowCount - rowItems.length;
 
           return (
             <tr
               key={`object_table_row_${rowItems[0].toString()}`}
-              className={`flex break-all ${rowIndex !== chunkedData.length - 1 && 'border-grey-200 border-b'}`}
+              className={` ${rowIndex !== chunkedData.length - 1 && 'border-grey-200 border-b'}`}
             >
               {rowItems.map(([key, value], index) => (
                 <React.Fragment key={key.toString()}>
-                  <td className='border-grey-200 text-14 bg-grey-50 leading-20 font-400 flex flex-1 items-center whitespace-pre-line break-keep border-r px-3 py-2.5'>
+                  <td className='border-grey-200 text-14 bg-grey-50 leading-20 font-400 items-center whitespace-pre-line break-keep border-r px-3 py-2.5'>
                     {renderKey(key)}
                   </td>
                   <td
-                    className={`flex flex-1 items-center px-3 py-2.5 ${(index + 1) % ROW_COUNT !== 0 && 'border-grey-200 border-r'}`}
+                    className={`items-center px-3 py-2.5 ${(index + 1) % rowCount !== 0 && 'border-grey-200 border-r'}`}
                   >
                     {renderValue(key, value)}
                   </td>
@@ -55,8 +58,8 @@ export default function ObjectTable<T extends object>({
               {/* 부족한 셀 채우기 */}
               {Array.from({ length: fillCount }).map((_, index) => (
                 <React.Fragment key={`empty_${index}`}>
-                  <td className='flex flex-1 border-r border-transparent px-3 py-2.5' />
-                  <td className='flex flex-1 border-r border-transparent px-3 py-2.5' />
+                  <td className='px-3 py-2.5' />
+                  <td className='px-3 py-2.5' />
                 </React.Fragment>
               ))}
             </tr>
