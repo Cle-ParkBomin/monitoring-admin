@@ -109,7 +109,7 @@ en.json, ko.json 관련 키 누락, 불일치 등을 확인을 위해 다음 명
 4. 정의되지 않은 키: 코드에 사용됐지만 번역 파일에 없는 키
 
 
-### 디렉토리 구조 예시
+### 폴더 구조 예시
   ```json
   /messages
     ├── en.json
@@ -135,6 +135,15 @@ en.json, ko.json 관련 키 누락, 불일치 등을 확인을 위해 다음 명
   }
 
 번역 추가 시 **기본 언어(en)**와 다른 언어(ko) 모두 업데이트해야 합니다.
+
+---
+
+# 모달창 관리
+
+### 호출
+1. `/src/app/locale/layout.tsx` 에서 모든 modal 창을 단 한 번만 호출합니다.
+2. `jotai` 전역 변수 useAtom을 이용하여 modal 값을 관리합니다.
+3. 파일: `Modal.tsx`, `Popup.tsx`, `ProgressModal.tsx`, `Toast.tsx`
 
 ---
 
