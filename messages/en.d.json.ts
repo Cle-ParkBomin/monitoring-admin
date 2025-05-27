@@ -21,6 +21,12 @@ declare const messages: {
     isNetwork: 'Network Connectivity';
     isProgram: 'Program Status';
     launcherUpdateAt: 'Launcher Updated';
+    fileName: 'File Name';
+    fileRelPath: 'File Relative Path';
+    buildVersion: 'Build Version';
+    deployer: 'Deployer';
+    updateAt: 'Updated Date';
+    hash: 'Hash';
   };
   table: {
     search: 'Search';
@@ -59,6 +65,7 @@ declare const messages: {
     'clipboard-error': 'Failed {key} to copy to clipboard.';
     'feature-unavailable': '{feature} feature is not yet implemented.';
     'default-information': 'Default Information';
+    'deploy-assistant': 'Deploy Assistant';
   };
 };
 export default messages;

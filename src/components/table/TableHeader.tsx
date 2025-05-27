@@ -13,7 +13,7 @@ export default function TableHeader<T extends object>({ data, renderHeader }: Ta
         {getObjectKeys(data[0]).map((key) => (
           <th
             key={`table_header_${key.toString()}`}
-            className='text-14 leading-20 text-grey-700 font-400 flex flex-1 items-center gap-1 px-3 py-2.5'
+            className='text-14 leading-20 text-grey-700 font-400 flex flex-1 items-center gap-1 whitespace-pre-line break-keep px-3 py-2.5'
           >
             {renderHeader(key)}
           </th>

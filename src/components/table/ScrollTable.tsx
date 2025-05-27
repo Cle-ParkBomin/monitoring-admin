@@ -1,0 +1,47 @@
+import Filter from '@/components/table/Filter';
+import Search from '@/components/table/Search';
+import TableHeader from '@/components/table/TableHeader';
+import { ReactNode } from 'react';
+import ScrollTableBody from './ScrollTableBody';
+
+interface ScrollTableProps<T extends object> {
+  title: string;
+  data: T[];
+  filterBody: { title: string; content: ReactNode }[];
+  refetchData: (value?: string) => void;
+  renderHeader: (key: keyof T) => ReactNode;
+  renderCell: (row: T, key: keyof T) => ReactNode;
+}
+
+export default function ScrollTable<T extends object>({
+  title,
+  data,
+  filterBody,
+  refetchData,
+  renderHeader,
+  renderCell,
+}: ScrollTableProps<T>) {
+  if (data.length < 1)
+    return (
+      <div className='mt-8 flex flex-1 items-center justify-center'>
+        <p>데이터가 없습니다.</p>
+      </div>
+    );
+
+  return (
+    <div className='flex flex-1 flex-col'>
+      <div className='flex flex-wrap items-center justify-between text-left'>
+        <h3 className='text-grey-800'>{title}</h3>
+        <div className='flex gap-2'>
+          <Search refetchData={refetchData} />
+          <Filter filterBody={filterBody} refetchData={refetchData} />
+        </div>
+      </div>
+
+      <table className='flex flex-col text-left'>
+        <TableHeader data={data} renderHeader={renderHeader} />
+        <ScrollTableBody data={data} renderCell={renderCell} />
+      </table>
+    </div>
+  );
+}

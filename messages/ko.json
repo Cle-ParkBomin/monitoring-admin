@@ -17,7 +17,13 @@
     "isLicense": "라이선스 여부",
     "isNetwork": "네트워크 접속 여부",
     "isProgram": "프로그램 종료 여부",
-    "launcherUpdateAt": "런처 업데이트 일시"
+    "launcherUpdateAt": "런처 업데이트 일시",
+    "fileName": "파일명",
+    "fileRelPath": "파일 상대 경로",
+    "buildVersion": "빌드 버전",
+    "deployer": "배포자",
+    "updateAt": "업데이트 일시",
+    "hash": "해시 값"
   },
   "modal": {
     "cancelLabel": "취소",
@@ -55,6 +61,7 @@
     "clipboard-success": "{key}가 클립보드에 복사되었습니다.",
     "clipboard-error": "{key}가 클립보드 복사에 실패했습니다.",
     "feature-unavailable": "{feature} 기능은 아직 구현되지 않았습니다.",
-    "default-information": "기본 정보"
+    "default-information": "기본 정보",
+    "deploy-assistant": "배포 도우미"
   }
 }

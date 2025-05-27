@@ -59,6 +59,15 @@ export interface HMGMADataType {
   launcherUpdateAt: string;
 }
 
+export interface DeployAssistantType {
+  fileName: string;
+  fileRelPath: string;
+  buildVersion: string;
+  deployer: string;
+  updateAt: string;
+  hash: string;
+}
+
 // Mockup Data
 export const Brain: HMGMADataType = {
   id: 0, // id
@@ -86,7 +95,7 @@ export const HMAGMA_DETAIL: HMGMADataType = {
   serialNumber: '00000000-00',
   anyDeskIP: '1 131 098 141',
   ipv4Address: '000.000.000.00',
-  isLicense: true,
+  isLicense: false,
   isNetwork: true,
   isProgram: true,
   launcherUpdateAt: '0000-00-00 00:00',
@@ -251,12 +260,12 @@ export const SystemPerformance = {
   },
 };
 
-export const deployAssistant = [
+export const DEPLOY_ASSISTANT: DeployAssistantType[] = [
   {
     fileName: 'COPICK3D',
     fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
     buildVersion: '1.0.0.2',
-    deployed: 'CLE_IDPARK',
+    deployer: 'CLE_IDPARK',
     updateAt: '03/21/2024 7:47:04 PM',
     hash: '1DA4...',
   },
@@ -264,7 +273,7 @@ export const deployAssistant = [
     fileName: 'COPICK3D',
     fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
     buildVersion: '1.0.0.2',
-    deployed: 'CLE_IDPARK',
+    deployer: 'CLE_IDPARK',
     updateAt: '03/21/2024 7:47:04 PM',
     hash: '1DA4...',
   },
@@ -272,7 +281,7 @@ export const deployAssistant = [
     fileName: 'COPICK3D',
     fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
     buildVersion: '1.0.0.2',
-    deployed: 'CLE_IDPARK',
+    deployer: 'CLE_IDPARK',
     updateAt: '03/21/2024 7:47:04 PM',
     hash: '1DA4...',
   },
@@ -280,7 +289,167 @@ export const deployAssistant = [
     fileName: 'COPICK3D',
     fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
     buildVersion: '1.0.0.2',
-    deployed: 'CLE_IDPARK',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
+    updateAt: '03/21/2024 7:47:04 PM',
+    hash: '1DA4...',
+  },
+  {
+    fileName: 'COPICK3D',
+    fileRelPath: 'CoomonLibs/COPICK3D_API.dll',
+    buildVersion: '1.0.0.2',
+    deployer: 'CLE_IDPARK',
     updateAt: '03/21/2024 7:47:04 PM',
     hash: '1DA4...',
   },

@@ -20,6 +20,7 @@ const list_before = [
   { isCheck: false, part: 'Back-End', content: '구글 로그인/회원가입 기능' },
   { isCheck: false, part: 'Back-End', content: '라이선스 발급 요청/승인/관리' },
   { isCheck: false, part: 'Back-End', content: '권한 관리: Super / Admin / Manager' },
+  { isCheck: false, part: 'Front-End', content: 'Scroll Table 무한 스크롤 기능 추가' },
 ];
 
 // 런처 이후
