@@ -1,3 +1,5 @@
+import { BadgeColor } from '@/components/badge/Badge';
+
 // Enum
 export enum LineEnum {
   LINE_ONE = '1',
@@ -24,6 +26,22 @@ export enum PCEnum {
   MAIN = 'Main',
   SPARE = 'Spare',
 }
+
+export const enumColors: Record<string, BadgeColor> = {
+  '1': 'yellow',
+  '2': 'red',
+  Glass: 'blue',
+  Sealer: 'green',
+  Primer: 'purple',
+  Wheel: 'grey',
+  Inspection: 'yellow',
+  FRT: 'yellow',
+  RR: 'neo-green',
+  RH: 'blue',
+  LH: 'red',
+  Main: 'red',
+  Spare: 'grey',
+};
 
 // type
 export interface HMGMADataType {

@@ -1,26 +1,23 @@
 import { getObjectKeys } from '@/utils/object';
 import { ReactNode } from 'react';
 
-interface TableBodyProps<T extends { id: number }> {
+interface TableBodyProps<T extends object> {
   data: T[];
   renderCell: (row: T, key: keyof T) => ReactNode;
 }
 
-export default function TableBody<T extends { id: number }>({
-  data,
-  renderCell,
-}: TableBodyProps<T>) {
+export default function TableBody<T extends object>({ data, renderCell }: TableBodyProps<T>) {
   const keys = getObjectKeys(data[0]);
 
   return (
     <tbody
       className='border-grey-300 leading-24 overflow-auto border'
-      style={{ height: `calc(100vh - 480px)` }}
+      style={{ maxHeight: `calc(100vh - 480px)` }}
     >
       {data.map((row, index) => (
         <tr
           className={`border-grey-200 flex ${index !== data.length - 1 && 'border-b'}`}
-          key={`table_row_${row.id}`}
+          key={`table_row_${index}`}
         >
           {keys.map((key) => (
             <td

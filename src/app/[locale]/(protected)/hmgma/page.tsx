@@ -1,14 +1,14 @@
 'use client';
 
-import Badge, { BadgeColor } from '@/components/badge/Badge';
+import Badge from '@/components/badge/Badge';
 import Button from '@/components/button/Button';
 import Dropdown from '@/components/button/Dropdown';
 import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
-import Toast from '@/components/modal/Toast';
 import Table from '@/components/table/Table';
 import {
+  enumColors,
   HMGMA_DATA,
   HMGMADataType,
   LineEnum,
@@ -16,7 +16,10 @@ import {
   PositionEnum,
   ProcessEnum,
 } from '@/dummy/HMGMA';
+import useClipboard from '@/hooks/useClipboard';
+import { toastAtom } from '@/jotai/modalAtoms';
 import { getObjectKeys } from '@/utils/object';
+import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
@@ -27,11 +30,9 @@ export default function HMGMAPage() {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
+  const copyToClipboard = useClipboard();
+  const [, setToast] = useAtom(toastAtom);
 
-  const [toast, setToast] = useImmer({
-    visible: false,
-    text: '',
-  });
   const [filter, setFilter] = useImmer<{
     line: keyof typeof LineEnum;
     process: keyof typeof ProcessEnum;
@@ -58,21 +59,6 @@ export default function HMGMAPage() {
   const refetchData = () => {
     // 재검색 기능: 검색, 정렬, 필터, n개씩 기능에 모두 들어갑니다.
     return;
-  };
-
-  const handleCopy = async (key: string, text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setToast((draft) => {
-        draft.visible = true;
-        draft.text = tHMGMA('clipboard-success', { key: key });
-      });
-    } catch {
-      setToast((draft) => {
-        draft.visible = true;
-        draft.text = tHMGMA('clipboard-error', { key: key });
-      });
-    }
   };
 
   const filterBody = [
@@ -205,22 +191,6 @@ export default function HMGMAPage() {
   );
 
   const renderCell = (row: HMGMADataType, key: keyof HMGMADataType): ReactNode => {
-    const enumColors: Record<string, BadgeColor> = {
-      '1': 'yellow',
-      '2': 'red',
-      Glass: 'blue',
-      Sealer: 'green',
-      Primer: 'purple',
-      Wheel: 'grey',
-      Inspection: 'yellow',
-      FRT: 'yellow',
-      RR: 'neo-green',
-      RH: 'blue',
-      LH: 'red',
-      Main: 'red',
-      Square: 'grey',
-    };
-
     switch (key) {
       case 'id':
         return (
@@ -243,7 +213,7 @@ export default function HMGMAPage() {
           <LinkButton
             value={row[key].toString()}
             onClick={() => {
-              void handleCopy(t('anyDeskIP'), row[key].toString());
+              void copyToClipboard(t('anyDeskIP'), row[key].toString());
               window.location.href = `anydesk:${row[key]}`;
             }}
           />
@@ -254,7 +224,7 @@ export default function HMGMAPage() {
           <LinkButton
             value={row[key].toString()}
             onClick={() => {
-              void handleCopy(t('ipv4Address'), row[key].toString());
+              void copyToClipboard(t('ipv4Address'), row[key].toString());
             }}
           />
         );
@@ -278,9 +248,11 @@ export default function HMGMAPage() {
               value='Update'
               size='s'
               onClick={() => {
-                setToast((draft) => {
-                  draft.visible = true;
-                  draft.text = tHMGMA('feature-unavailable', { feature: 'Launcher Update' });
+                setToast({
+                  visible: true,
+                  text: tHMGMA('feature-unavailable', { feature: 'Launcher Update' }),
+                  icon: 'check',
+                  style: 'dark',
                 });
               }}
             />
@@ -293,24 +265,13 @@ export default function HMGMAPage() {
   };
 
   return (
-    <>
-      <Table
-        title='HMGMA'
-        data={HMGMA_DATA}
-        refetchData={refetchData}
-        filterBody={filterBody}
-        renderHeader={renderHeader}
-        renderCell={renderCell}
-      />
-      <Toast
-        visible={toast.visible}
-        setVisible={(visible: boolean) =>
-          setToast((draft) => {
-            draft.visible = visible;
-          })
-        }
-        text={toast.text}
-      />
-    </>
+    <Table
+      title='HMGMA'
+      data={HMGMA_DATA}
+      refetchData={refetchData}
+      filterBody={filterBody}
+      renderHeader={renderHeader}
+      renderCell={renderCell}
+    />
   );
 }

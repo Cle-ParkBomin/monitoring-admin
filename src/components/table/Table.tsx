@@ -6,7 +6,7 @@ import TableBody from '@/components/table/TableBody';
 import TableHeader from '@/components/table/TableHeader';
 import { ReactNode, useState } from 'react';
 
-interface TableProps<T extends { id: number }> {
+interface TableProps<T extends object> {
   title: string;
   data: T[];
   filterBody: { title: string; content: ReactNode }[];
@@ -15,7 +15,7 @@ interface TableProps<T extends { id: number }> {
   renderCell: (row: T, key: keyof T) => ReactNode;
 }
 
-export default function Table<T extends { id: number }>({
+export default function Table<T extends object>({
   title,
   data,
   filterBody,

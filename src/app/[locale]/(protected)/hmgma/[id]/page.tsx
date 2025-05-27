@@ -1,0 +1,17 @@
+'use client';
+
+import { useParams } from 'next/navigation';
+import DefaultInfo from './DefaultInfo';
+
+export default function HMGMAIdPage() {
+  const params = useParams();
+
+  return (
+    <div className='flex flex-1 flex-col gap-5'>
+      <h1 className='flex gap-2'>
+        HMGMA PC <p className='text-primary-500'>#{params.id}</p>
+      </h1>
+      <DefaultInfo />
+    </div>
+  );
+}
