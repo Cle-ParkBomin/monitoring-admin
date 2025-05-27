@@ -1,7 +1,7 @@
 import Badge from '@/components/badge/Badge';
 import Button from '@/components/button/Button';
 import LinkButton from '@/components/button/LinkButton';
-import ObjectTable from '@/components/objectTable/ObjectTable';
+import ObjectTable from '@/components/table/ObjectTable';
 import { enumColors, HMAGMA_DETAIL, HMGMADataType } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
 import { toastAtom } from '@/jotai/modalAtoms';
