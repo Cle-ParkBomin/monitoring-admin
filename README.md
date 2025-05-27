@@ -114,6 +114,7 @@ en.json, ko.json 관련 키 누락, 불일치 등을 확인을 위해 다음 명
   /messages
     ├── en.json
     └── ko.json
+  ```
 
 ### 다국어 json 파일 key 작성 규칙
 1. 페이지 네이밍
