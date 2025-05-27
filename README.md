@@ -110,7 +110,7 @@ en.json, ko.json 관련 키 누락, 불일치 등을 확인을 위해 다음 명
 
 
 ### 폴더 구조 예시
-  ```json
+  ```plaintext
   /messages
     ├── en.json
     └── ko.json
