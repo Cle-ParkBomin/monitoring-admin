@@ -31,7 +31,7 @@ export default function Badge({ value, onClick, color = 'grey', size = 'm' }: Ba
       className={`text-medium border-1 flex w-fit items-center gap-2 rounded-lg ${variantStyle[color]} ${sizeStyle[size]} ${onClick && 'cursor-pointer'}`}
       onClick={onClick}
     >
-      <p> {value}</p>
+      <p className='whitespace-nowrap'>{value}</p>
     </button>
   );
 }
