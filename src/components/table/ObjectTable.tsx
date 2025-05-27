@@ -22,7 +22,7 @@ export default function ObjectTable<T extends object>({
   data,
   renderKey,
   renderValue,
-  rowCount = 5,
+  rowCount = 4,
 }: ObjectTableProps<T>) {
   const arrayData = getObjectEntries(data);
   const chunkedData = chunk(arrayData, rowCount);
