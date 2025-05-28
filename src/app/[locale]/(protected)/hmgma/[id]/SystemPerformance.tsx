@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-export default function SystemPerformace() {
+export default function SystemPerformance() {
   const t = useTranslations('hmgma');
 
   return (
