@@ -85,7 +85,6 @@ export const Brain: HMGMADataType = {
 };
 
 // Detail
-
 export const HMAGMA_DETAIL: HMGMADataType = {
   id: 0,
   line: LineEnum.LINE_ONE,
@@ -101,7 +100,7 @@ export const HMAGMA_DETAIL: HMGMADataType = {
   launcherUpdateAt: '0000-00-00 00:00',
 };
 
-export const SystemPerformance = {
+export const SYSTEM_PERFORMANCE = {
   cpu: {
     name: 'Intel(R) Core(TM) i7-14700', // 모델명
     baseSpeedGhz: 2.1, //  기본 속도: 2.10GHz
