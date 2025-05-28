@@ -9,15 +9,14 @@ import CalendarInput from '@/components/headless/CalendarInput';
 import CheckBox from '@/components/radio/CheckBox';
 import ListTable from '@/components/table/ListTable';
 import {
-  defaultDataType,
   enumColors,
   LineEnum,
   listData,
+  listDataType,
   PCEnum,
   PositionEnum,
   ProcessEnum,
 } from '@/dummy/HMGMA';
-import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { getObjectKeys } from '@/utils/object';
 import { useAtom } from 'jotai';
@@ -31,7 +30,6 @@ export default function HMGMAPage() {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
-  const copyToClipboard = useClipboard();
   const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
@@ -185,18 +183,25 @@ export default function HMGMAPage() {
     },
   ];
 
-  const renderHeader = (key: keyof defaultDataType): ReactNode => (
-    <>
-      <span>{t(`${key}`)}</span>
-      <HiOutlineSwitchVertical
-        size={16}
-        className='shrink-0 cursor-pointer'
-        onClick={() => refetchData()}
-      />
-    </>
-  );
+  const renderHeader = (key: keyof listDataType): ReactNode => {
+    {
+      switch (key) {
+        default:
+          return (
+            <>
+              <span>{t(`${key}`)}</span>
+              <HiOutlineSwitchVertical
+                size={16}
+                className='shrink-0 cursor-pointer'
+                onClick={() => refetchData()}
+              />
+            </>
+          );
+      }
+    }
+  };
 
-  const renderCell = (row: defaultDataType, key: keyof defaultDataType): ReactNode => {
+  const renderCell = (row: listDataType, key: keyof listDataType): ReactNode => {
     switch (key) {
       case 'id':
         return (
@@ -213,27 +218,6 @@ export default function HMGMAPage() {
       case 'position':
       case 'pc':
         return <Badge value={row[key].toString()} color={enumColors[row[key].toString()]} />;
-
-      case 'anyDeskIP':
-        return (
-          <LinkButton
-            value={row[key].toString()}
-            onClick={() => {
-              void copyToClipboard(t('anyDeskIP'), row[key].toString());
-              window.location.href = `anydesk:${row[key]}`;
-            }}
-          />
-        );
-
-      case 'ipv4Address':
-        return (
-          <LinkButton
-            value={row[key].toString()}
-            onClick={() => {
-              void copyToClipboard(t('ipv4Address'), row[key].toString());
-            }}
-          />
-        );
 
       case 'isLicense':
         return (
@@ -296,9 +280,6 @@ export default function HMGMAPage() {
             />
           </div>
         );
-
-      default:
-        return row[key].toString();
     }
   };
 

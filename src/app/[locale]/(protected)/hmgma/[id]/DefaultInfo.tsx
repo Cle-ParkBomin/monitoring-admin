@@ -3,7 +3,7 @@ import Button from '@/components/button/Button';
 import LinkButton from '@/components/button/LinkButton';
 import CheckBox from '@/components/radio/CheckBox';
 import ObjectTable from '@/components/table/ObjectTable';
-import { defaultDataType, enumColors, listData } from '@/dummy/HMGMA';
+import { defaultDataType, detailData, enumColors } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { useAtom } from 'jotai';
@@ -15,7 +15,7 @@ export default function DefaultInfo() {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
   const params = useParams();
-  const data = listData[Number(params.id)];
+  const data = detailData[Number(params.id)];
 
   const copyToClipboard = useClipboard();
   const [, setPopup] = useAtom(popupAtom);
