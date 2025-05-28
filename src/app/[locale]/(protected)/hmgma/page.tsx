@@ -6,6 +6,7 @@ import Dropdown from '@/components/button/Dropdown';
 import LinkButton from '@/components/button/LinkButton';
 import { DateRange } from '@/components/headless/Calendar';
 import CalendarInput from '@/components/headless/CalendarInput';
+import CheckBox from '@/components/radio/CheckBox';
 import ListTable from '@/components/table/ListTable';
 import {
   enumColors,
@@ -17,7 +18,7 @@ import {
   ProcessEnum,
 } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
-import { toastAtom } from '@/jotai/modalAtoms';
+import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { getObjectKeys } from '@/utils/object';
 import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
@@ -31,6 +32,7 @@ export default function HMGMAPage() {
   const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
   const copyToClipboard = useClipboard();
+  const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
   const [filter, setFilter] = useImmer<{
@@ -234,6 +236,30 @@ export default function HMGMAPage() {
         );
 
       case 'isLicense':
+        return (
+          <CheckBox
+            isCheck={row[key]}
+            onClick={() =>
+              setPopup({
+                visible: true,
+                title: tHMGMA('license-popup-title'),
+                content: tHMGMA('license-popup-content', { state: row[key].toString() }),
+                onCancel: () => {
+                  return;
+                },
+                onConfirm: () =>
+                  setToast({
+                    visible: true,
+                    text: tHMGMA('feature-unavailable', { feature: 'License' }),
+                    icon: 'warn',
+                  }),
+                cancelLabel: tHMGMA('no'),
+                confirmLabel: tHMGMA('yes'),
+              })
+            }
+          />
+        );
+
       case 'isNetwork':
         return (
           <p
@@ -263,8 +289,7 @@ export default function HMGMAPage() {
                 setToast({
                   visible: true,
                   text: tHMGMA('feature-unavailable', { feature: 'Launcher Update' }),
-                  icon: 'check',
-                  style: 'dark',
+                  icon: 'warn',
                 });
               }}
             />

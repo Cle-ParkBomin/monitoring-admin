@@ -67,6 +67,11 @@ declare const messages: {
     'default-information': 'Default Information';
     'deploy-assistant': 'Deploy Assistant';
     'update-button': 'Update';
+    'system-performance': 'System Performance';
+    'license-popup-title': 'License application';
+    'license-popup-content': 'Would you like to request a license {state, select, true {release} other {issuance}}?';
+    yes: 'YES';
+    no: 'NO';
   };
 };
 export default messages;

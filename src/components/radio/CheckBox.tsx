@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 
 interface CheckBoxProps {
-  label: string;
+  label?: string;
   isCheck: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   isDisabled?: boolean;
@@ -61,7 +61,7 @@ export default function CheckBox({
       >
         {isCheck && <FaCheck size={14} color={grey0} />}
       </div>
-      <p className={`${variantStyle[variantKey].text} ${sizeStyle[size]}`}>{label}</p>
+      {label && <p className={`${variantStyle[variantKey].text} ${sizeStyle[size]}`}>{label}</p>}
     </button>
   );
 }

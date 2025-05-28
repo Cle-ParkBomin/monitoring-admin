@@ -63,6 +63,11 @@
     "feature-unavailable": "{feature} 기능은 아직 구현되지 않았습니다.",
     "default-information": "기본 정보",
     "deploy-assistant": "배포 도우미",
-    "update-button": "업데이트"
+    "update-button": "업데이트",
+    "system-performance": "시스템 성능",
+    "license-popup-title": "라이선스 요청",
+    "license-popup-content": "라이선스 {state, select, true {해제} other {발급}} 요청하시겠습니까?",
+    "yes": "네",
+    "no": "아니오"
   }
 }
