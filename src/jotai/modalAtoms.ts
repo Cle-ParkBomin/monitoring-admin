@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 export const modalDefault: {
   visible: boolean;
   title: string;
-  context?: ReactElement;
+  content?: ReactElement;
   onCancel?: () => void;
   onConfirm?: () => void;
   cancelLabel?: string;
@@ -16,7 +16,7 @@ export const modalDefault: {
 export const modalAtom = atom<{
   visible: boolean;
   title: string;
-  context?: ReactElement;
+  content?: ReactElement;
   onCancel?: () => void;
   onConfirm?: () => void;
   cancelLabel?: string;

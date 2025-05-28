@@ -50,7 +50,7 @@ export default function ModalView() {
               setModal({
                 visible: true,
                 title: 'Title',
-                context: ModalViewContent(),
+                content: ModalViewContent(),
               })
             }
             style='outline'
@@ -61,7 +61,7 @@ export default function ModalView() {
               setModal({
                 visible: true,
                 title: 'Title',
-                context: ModalViewContent(),
+                content: ModalViewContent(),
                 onCancel: () => setModal(modalDefault),
               })
             }

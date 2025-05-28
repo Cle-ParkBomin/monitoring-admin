@@ -40,7 +40,7 @@ export default function Modal() {
           />
         </div>
         {/* context */}
-        <div className='max-h-[511px] overflow-y-auto px-6 pb-10'>{modal.context}</div>
+        <div className='max-h-[511px] overflow-y-auto px-6 pb-10'>{modal.content}</div>
         {/* button */}
         <div className='flex items-center justify-end gap-2.5 px-6 py-4'>
           {modal.onCancel && (
