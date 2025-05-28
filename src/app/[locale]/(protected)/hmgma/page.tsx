@@ -9,10 +9,10 @@ import CalendarInput from '@/components/headless/CalendarInput';
 import CheckBox from '@/components/radio/CheckBox';
 import ListTable from '@/components/table/ListTable';
 import {
+  defaultDataType,
   enumColors,
-  HMGMA_DATA,
-  HMGMADataType,
   LineEnum,
+  listData,
   PCEnum,
   PositionEnum,
   ProcessEnum,
@@ -185,7 +185,7 @@ export default function HMGMAPage() {
     },
   ];
 
-  const renderHeader = (key: keyof HMGMADataType): ReactNode => (
+  const renderHeader = (key: keyof defaultDataType): ReactNode => (
     <>
       <span>{t(`${key}`)}</span>
       <HiOutlineSwitchVertical
@@ -196,7 +196,7 @@ export default function HMGMAPage() {
     </>
   );
 
-  const renderCell = (row: HMGMADataType, key: keyof HMGMADataType): ReactNode => {
+  const renderCell = (row: defaultDataType, key: keyof defaultDataType): ReactNode => {
     switch (key) {
       case 'id':
         return (
@@ -305,7 +305,7 @@ export default function HMGMAPage() {
   return (
     <ListTable
       title='HMGMA'
-      data={HMGMA_DATA}
+      data={listData}
       refetchData={refetchData}
       filterBody={filterBody}
       renderHeader={renderHeader}

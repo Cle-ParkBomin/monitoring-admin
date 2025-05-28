@@ -3,26 +3,28 @@ import Button from '@/components/button/Button';
 import LinkButton from '@/components/button/LinkButton';
 import CheckBox from '@/components/radio/CheckBox';
 import ObjectTable from '@/components/table/ObjectTable';
-import { enumColors, HMAGMA_DETAIL, HMGMADataType } from '@/dummy/HMGMA';
+import { defaultDataType, enumColors, listData } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 import { ReactNode } from 'react';
 
 export default function DefaultInfo() {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
-  const data = HMAGMA_DETAIL;
+  const params = useParams();
+  const data = listData[Number(params.id)];
 
   const copyToClipboard = useClipboard();
   const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
-  const renderKey = (key: keyof HMGMADataType): ReactNode => t(`${key}`);
+  const renderKey = (key: keyof defaultDataType): ReactNode => t(`${key}`);
   const renderValue = (
-    key: keyof HMGMADataType,
-    value: HMGMADataType[keyof HMGMADataType],
+    key: keyof defaultDataType,
+    value: defaultDataType[keyof defaultDataType],
   ): ReactNode => {
     switch (key) {
       case 'line':

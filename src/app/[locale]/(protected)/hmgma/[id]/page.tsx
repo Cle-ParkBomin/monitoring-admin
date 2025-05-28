@@ -2,7 +2,6 @@
 
 import { useParams } from 'next/navigation';
 import DefaultInfo from './DefaultInfo';
-import DeployAssistant from './DeployAssistant';
 
 export default function HMGMAIdPage() {
   const params = useParams();
@@ -13,7 +12,6 @@ export default function HMGMAIdPage() {
         HMGMA PC <p className='text-primary-500'>#{params.id}</p>
       </h1>
       <DefaultInfo />
-      <DeployAssistant />
     </div>
   );
 }
