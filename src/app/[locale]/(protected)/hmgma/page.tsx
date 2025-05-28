@@ -257,6 +257,7 @@ export default function HMGMAPage() {
                 confirmLabel: tHMGMA('yes'),
               })
             }
+            style='primary500'
           />
         );
 
