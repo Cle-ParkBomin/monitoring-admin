@@ -3,7 +3,6 @@
 import { useParams } from 'next/navigation';
 import DefaultInfo from './DefaultInfo';
 import DeployAssistant from './DeployAssistant';
-import SystemPerformance from './SystemPerformance';
 
 export default function HMGMAIdPage() {
   const params = useParams();
@@ -15,7 +14,6 @@ export default function HMGMAIdPage() {
       </h1>
       <DefaultInfo />
       <DeployAssistant />
-      <SystemPerformance />
     </div>
   );
 }
