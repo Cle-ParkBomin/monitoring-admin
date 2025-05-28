@@ -23,12 +23,16 @@ const list_before = [
     content: '배포도우미 기능 추가: 검색/정렬/필터, 백업 전체 기록 등',
   },
   { isCheck: false, part: 'Back-End', content: 'menu list 넘기기' },
-  { isCheck: false, part: 'Back-End', content: 'n개씩 호출, pagination 기능' },
-  { isCheck: false, part: 'Back-End', content: '정렬/필터/pagination 기능' },
+  { isCheck: false, part: 'Back-End', content: '정렬/필터/pagination/n개씩 호출 기능' },
   { isCheck: false, part: 'Back-End', content: '구글 로그인/회원가입 기능' },
   { isCheck: false, part: 'Back-End', content: '라이선스 발급 요청/승인/관리' },
   { isCheck: false, part: 'Back-End', content: '권한 관리: Super / Admin / Manager' },
   { isCheck: false, part: 'Front-End', content: 'Scroll Table 무한 스크롤 기능 추가' },
+  {
+    isCheck: false,
+    part: 'Back-End',
+    content: 'Telegram, InfluxDB 로컬 컴퓨터 헬스 정보 실시간으로 보여주기',
+  },
 ];
 
 // 런처 이후
@@ -43,6 +47,7 @@ const list_after = [
   { isCheck: false, part: 'Back-End', content: 'Luncher 업데이트 기능' },
   { isCheck: false, part: 'Back-End', content: 'PC 원격 접속' },
   { isCheck: false, part: 'Back-End', content: '배포 도우미 기능 반영' },
+  { isCheck: false, part: 'Back-End', content: 'PC 헬스 정보 반영' },
 ];
 
 export default function ToDo() {
