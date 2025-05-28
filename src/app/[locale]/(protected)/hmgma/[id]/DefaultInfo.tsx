@@ -1,10 +1,11 @@
 import Badge from '@/components/badge/Badge';
 import Button from '@/components/button/Button';
 import LinkButton from '@/components/button/LinkButton';
+import CheckBox from '@/components/radio/CheckBox';
 import ObjectTable from '@/components/table/ObjectTable';
 import { enumColors, HMAGMA_DETAIL, HMGMADataType } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
-import { toastAtom } from '@/jotai/modalAtoms';
+import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
@@ -15,6 +16,7 @@ export default function DefaultInfo() {
   const data = HMAGMA_DETAIL;
 
   const copyToClipboard = useClipboard();
+  const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
   const renderKey = (key: keyof HMGMADataType): ReactNode => t(`${key}`);
@@ -51,6 +53,31 @@ export default function DefaultInfo() {
         );
 
       case 'isLicense':
+        return (
+          <CheckBox
+            isCheck={Boolean(value)}
+            onClick={() =>
+              setPopup({
+                visible: true,
+                title: tHMGMA('license-popup-title'),
+                content: tHMGMA('license-popup-content', { state: value.toString() }),
+                onCancel: () => {
+                  return;
+                },
+                onConfirm: () =>
+                  setToast({
+                    visible: true,
+                    text: tHMGMA('feature-unavailable', { feature: 'License' }),
+                    icon: 'warn',
+                  }),
+                cancelLabel: tHMGMA('no'),
+                confirmLabel: tHMGMA('yes'),
+              })
+            }
+            style='primary500'
+          />
+        );
+
       case 'isNetwork':
         return (
           <p
