@@ -25,6 +25,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
+import { IoWarning } from 'react-icons/io5';
 import { useImmer } from 'use-immer';
 
 export default function HMGMAPage() {
@@ -253,17 +254,18 @@ export default function HMGMAPage() {
           <p
             className={`flex h-full flex-1 items-center p-2 ${row[key] === false && 'text-primary-600'}`}
           >
-            {row[key] ? tHMGMA('on') : tHMGMA('off')}
+            {tHMGMA('on&off', { state: row[key].toString() })}
           </p>
         );
 
       case 'isProgram':
         return (
-          <p
-            className={`flex h-full flex-1 items-center p-2 ${row[key] === true && 'bg-primary-100 text-primary-600'}`}
+          <div
+            className={`flex h-full flex-1 items-center gap-1 p-2 ${row[key] === false && 'bg-primary-500 text-grey-0'}`}
           >
-            {row[key] ? tHMGMA('off') : tHMGMA('on')}
-          </p>
+            {!row[key] && <IoWarning className='animate-pulse' />}
+            <p>{tHMGMA('on&off', { state: row[key].toString() })}</p>
+          </div>
         );
 
       case 'anyDeskIP':

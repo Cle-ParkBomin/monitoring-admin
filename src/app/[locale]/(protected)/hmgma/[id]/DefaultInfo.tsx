@@ -3,28 +3,29 @@ import Button from '@/components/button/Button';
 import LinkButton from '@/components/button/LinkButton';
 import CheckBox from '@/components/radio/CheckBox';
 import ObjectTable from '@/components/table/ObjectTable';
-import { defaultType, detailData, enumColors } from '@/dummy/HMGMA';
+import { defaultType, enumColors } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 import { ReactNode } from 'react';
 
-export default function DefaultInfo() {
+interface DefaultInfoProps {
+  data: defaultType;
+}
+
+export default function DefaultInfo({ data }: DefaultInfoProps) {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
-  const params = useParams();
-  const data = detailData[Number(params.id)].default;
 
   const copyToClipboard = useClipboard();
   const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
-  const renderKey = (key: keyof defaultType): ReactNode => t(`${key}`);
+  const renderKey = (key: keyof typeof data): ReactNode => t(`${key}`);
   const renderValue = (
-    key: keyof defaultType,
-    value: defaultType[keyof defaultType],
+    key: keyof typeof data,
+    value: (typeof data)[keyof typeof data],
   ): ReactNode => {
     switch (key) {
       case 'line':
@@ -81,19 +82,12 @@ export default function DefaultInfo() {
         );
 
       case 'isNetwork':
+      case 'isProgram':
         return (
           <p
             className={`flex h-full flex-1 items-center p-2 ${value === false && 'bg-primary-100 text-primary-600'}`}
           >
-            {value.toString()}
-          </p>
-        );
-      case 'isProgram':
-        return (
-          <p
-            className={`flex h-full flex-1 items-center p-2 ${value === true && 'bg-primary-100 text-primary-600'}`}
-          >
-            {value.toString()}
+            {tHMGMA('on&off', { state: value.toString() })}
           </p>
         );
 

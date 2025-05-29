@@ -47,7 +47,7 @@ const list_before = [
   {
     isCheck: false,
     part: 'Back-End',
-    content: '사용자 설정: 자주 사용하는 필터, 새로고침 시간 설정, 북마크',
+    content: '사용자 설정: 자주 사용하는 필터, 브라우저 새로고침 시간 설정, 북마크',
   },
   { isCheck: false, part: 'Back-End', content: '중복 정렬 기능 (monday)' },
 ];
@@ -65,6 +65,12 @@ const list_after = [
   { isCheck: false, part: 'Back-End', content: 'PC 원격 접속' },
   { isCheck: false, part: 'Back-End', content: '배포 도우미 기능 반영' },
   { isCheck: false, part: 'Back-End', content: 'PC 헬스 정보 반영' },
+  {
+    isCheck: false,
+    part: 'Back-End',
+    content: '단일 서버 통합: 네트워크와 상관없이 접근가능한 브라우저',
+  },
+  { isCheck: false, part: 'Back-End', content: 'PC 실시간 성능 시스템 관제 - datadog, Grafana' },
 ];
 
 export default function ToDo() {
