@@ -33,7 +33,7 @@ declare const messages: {
     ram: 'RAM';
     storage: 'Storage';
     network: 'Network';
-    name: 'Device Name';
+    'device-name': 'Device Name';
     usage: 'Usage';
     current: 'Current';
     average: 'Average';
@@ -42,6 +42,11 @@ declare const messages: {
     send: 'Send';
     receive: 'Receive';
     total: 'Total';
+    'program-name': 'Program Name';
+    image: 'Image';
+    version: 'Version';
+    'driver-name': 'Driver Name';
+    installedAt: 'Installed Date';
   };
   table: {
     search: 'Search';
@@ -88,6 +93,8 @@ declare const messages: {
     yes: 'YES';
     no: 'NO';
     'on&off': '{state, select, true {ON} other {OFF}}';
+    'program-title': 'Program Information';
+    'driver-title': 'Driver Information';
   };
 };
 export default messages;

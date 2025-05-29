@@ -10,7 +10,14 @@ interface PCStatusProps {
 export default function PCStatus({ data }: PCStatusProps) {
   const t = useTranslations('mockup');
 
-  const renderCPUKey = (key: keyof (typeof data)['cpu' | 'gpu']): ReactNode => t(`${key}`);
+  const renderCPUKey = (key: keyof (typeof data)['cpu' | 'gpu']): ReactNode => {
+    switch (key) {
+      case 'name':
+        return t('device-name');
+      default:
+        return t(`${key}`);
+    }
+  };
   const renderCPUValue = (
     key: keyof (typeof data)['cpu' | 'gpu'],
     value: (typeof data)['cpu' | 'gpu']['name' | 'usage'],

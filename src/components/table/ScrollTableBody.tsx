@@ -13,7 +13,7 @@ export default function ScrollTableBody<T extends object>({
   const keys = getObjectKeys(data[0]);
 
   return (
-    <tbody className='border-grey-300 leading-24 max-h-96 overflow-auto border'>
+    <tbody className='border-grey-300 leading-24 max-h-60 overflow-auto border'>
       {data.map((row, index) => (
         <tr
           className={`border-grey-200 flex ${index !== data.length - 1 && 'border-b'}`}

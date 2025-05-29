@@ -95,7 +95,7 @@ export default function Dropdown<T>({
             {valueList.map((item) => (
               <button
                 key={String(item)}
-                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 ${item === value && variantStyle[style].button} ${sizeStyle[size].dropButton}`}
+                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 text-left ${item === value && variantStyle[style].button} ${sizeStyle[size].dropButton}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}
