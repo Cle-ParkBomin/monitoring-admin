@@ -146,7 +146,7 @@ export const listData: listType[] = [
     pc: PCEnum.SPARE,
     isLicense: false,
     isNetwork: true,
-    isProgram: true,
+    isProgram: false,
     anyDeskIP: '1 767 348 054',
     launcherUpdateAt: '0000-00-00 00:00',
   },
