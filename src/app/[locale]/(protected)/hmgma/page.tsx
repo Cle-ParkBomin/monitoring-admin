@@ -12,11 +12,12 @@ import {
   enumColors,
   LineEnum,
   listData,
-  listDataType,
+  listType,
   PCEnum,
   PositionEnum,
   ProcessEnum,
 } from '@/dummy/HMGMA';
+import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
 import { getObjectKeys } from '@/utils/object';
 import { useAtom } from 'jotai';
@@ -30,6 +31,8 @@ export default function HMGMAPage() {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
   const router = useRouter();
+  const copyToClipboard = useClipboard();
+
   const [, setPopup] = useAtom(popupAtom);
   const [, setToast] = useAtom(toastAtom);
 
@@ -183,7 +186,7 @@ export default function HMGMAPage() {
     },
   ];
 
-  const renderHeader = (key: keyof listDataType): ReactNode => {
+  const renderHeader = (key: keyof listType): ReactNode => {
     {
       switch (key) {
         default:
@@ -201,9 +204,9 @@ export default function HMGMAPage() {
     }
   };
 
-  const renderCell = (row: listDataType, key: keyof listDataType): ReactNode => {
+  const renderCell = (row: listType, key: keyof listType): ReactNode => {
     switch (key) {
-      case 'id':
+      case 'serialNumber':
         return (
           <LinkButton
             value={row[key].toString()}
@@ -248,9 +251,9 @@ export default function HMGMAPage() {
       case 'isNetwork':
         return (
           <p
-            className={`flex h-full flex-1 items-center p-2 ${row[key] === false && 'bg-primary-100 text-primary-600'}`}
+            className={`flex h-full flex-1 items-center p-2 ${row[key] === false && 'text-primary-600'}`}
           >
-            {row[key].toString()}
+            {row[key] ? tHMGMA('on') : tHMGMA('off')}
           </p>
         );
 
@@ -259,8 +262,19 @@ export default function HMGMAPage() {
           <p
             className={`flex h-full flex-1 items-center p-2 ${row[key] === true && 'bg-primary-100 text-primary-600'}`}
           >
-            {row[key].toString()}
+            {row[key] ? tHMGMA('off') : tHMGMA('on')}
           </p>
+        );
+
+      case 'anyDeskIP':
+        return (
+          <LinkButton
+            value={row[key].toString()}
+            onClick={() => {
+              void copyToClipboard(t('anyDeskIP'), row[key].toString());
+              window.location.href = `anydesk:${row[key]}`;
+            }}
+          />
         );
 
       case 'launcherUpdateAt':

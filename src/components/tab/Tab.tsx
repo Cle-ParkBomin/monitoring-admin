@@ -1,15 +1,15 @@
-export interface TabType {
-  key?: number;
-  value?: string;
+export interface TabType<T extends string> {
+  key: number;
+  value: T;
 }
 
-interface TabProps {
-  value: TabType;
-  valueList: TabType[];
-  onClick?: (value: TabType) => void;
+interface TabProps<T extends string> {
+  value: TabType<T>;
+  valueList: TabType<T>[];
+  onClick?: (value: TabType<T>) => void;
 }
 
-export default function Tab({ value, valueList, onClick }: TabProps) {
+export default function Tab<T extends string>({ value, valueList, onClick }: TabProps<T>) {
   return (
     <div className='flex-fit flex items-center justify-between gap-4'>
       {valueList?.map((item) => (

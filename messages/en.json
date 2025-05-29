@@ -6,7 +6,6 @@
     "INACTIVE": "INACTIVE"
   },
   "mockup": {
-    "id": "ID",
     "line": "Line",
     "process": "Process",
     "position": "Position",
@@ -14,6 +13,7 @@
     "serialNumber": "Serial Number",
     "anyDeskIP": "AnyDesk IP",
     "ipv4Address": "IP Address",
+    "activeServer": "Active Server",
     "isLicense": "License Status",
     "isNetwork": "Network Connectivity",
     "isProgram": "Program Status",
@@ -68,6 +68,8 @@
     "license-popup-title": "License application",
     "license-popup-content": "Would you like to request a license {state, select, true {release} other {issuance}}?",
     "yes": "YES",
-    "no": "NO"
+    "no": "NO",
+    "on": "ON",
+    "off": "OFF"
   }
 }

@@ -22,17 +22,34 @@ const list_before = [
     part: 'Front-End',
     content: '배포도우미 기능 추가: 검색/정렬/필터, 백업 전체 기록 등',
   },
+  {
+    isCheck: false,
+    part: 'Front-End',
+    content: '자주 쓰는 필터 추가',
+  },
   { isCheck: false, part: 'Back-End', content: 'menu list 넘기기' },
   { isCheck: false, part: 'Back-End', content: '정렬/필터/pagination/n개씩 호출 기능' },
-  { isCheck: false, part: 'Back-End', content: '구글 로그인/회원가입 기능' },
-  { isCheck: false, part: 'Back-End', content: '라이선스 발급 요청/승인/관리' },
-  { isCheck: false, part: 'Back-End', content: '권한 관리: Super / Admin / Manager' },
+  { isCheck: false, part: 'Back-End', content: '프로그램 종료 여부: 상단 위치' },
   { isCheck: false, part: 'Front-End', content: 'Scroll Table 무한 스크롤 기능 추가' },
   {
     isCheck: false,
     part: 'Back-End',
-    content: 'Telegram, InfluxDB 로컬 컴퓨터 헬스 정보 실시간으로 보여주기',
+    content: '검색 기능: 태그 추가, 프로그램 검색, front-frt 등 검색 시 나오도록',
   },
+  { isCheck: false, part: 'Back-End', content: '구글 로그인/회원가입 기능' },
+  { isCheck: false, part: 'Back-End', content: '라이선스 발급 요청/승인/관리' },
+  { isCheck: false, part: 'Back-End', content: '권한 관리: Super / Admin / Manager' },
+  {
+    isCheck: false,
+    part: 'Back-End',
+    content: '브라우저 알림 추가 - 프로그램 종료 여부 (고위드)',
+  },
+  {
+    isCheck: false,
+    part: 'Back-End',
+    content: '사용자 설정: 자주 사용하는 필터, 새로고침 시간 설정, 북마크',
+  },
+  { isCheck: false, part: 'Back-End', content: '중복 정렬 기능 (monday)' },
 ];
 
 // 런처 이후

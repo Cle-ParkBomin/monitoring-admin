@@ -6,7 +6,6 @@
     "INACTIVE": "비활성"
   },
   "mockup": {
-    "id": "ID",
     "line": "라인",
     "process": "공정",
     "position": "분류",
@@ -14,6 +13,7 @@
     "serialNumber": "시리얼 넘버",
     "anyDeskIP": "애니데스크 IP",
     "ipv4Address": "IP 주소",
+    "activeServer": "연결된 서버 주소",
     "isLicense": "라이선스 여부",
     "isNetwork": "네트워크 접속 여부",
     "isProgram": "프로그램 종료 여부",
@@ -68,6 +68,8 @@
     "license-popup-title": "라이선스 요청",
     "license-popup-content": "라이선스 {state, select, true {해제} other {발급}} 요청하시겠습니까?",
     "yes": "네",
-    "no": "아니오"
+    "no": "아니오",
+    "on": "ON",
+    "off": "OFF"
   }
 }

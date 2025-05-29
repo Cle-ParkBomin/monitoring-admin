@@ -9,7 +9,6 @@ declare const messages: {
     INACTIVE: 'INACTIVE';
   };
   mockup: {
-    id: 'ID';
     line: 'Line';
     process: 'Process';
     position: 'Position';
@@ -17,6 +16,7 @@ declare const messages: {
     serialNumber: 'Serial Number';
     anyDeskIP: 'AnyDesk IP';
     ipv4Address: 'IP Address';
+    activeServer: 'Active Server';
     isLicense: 'License Status';
     isNetwork: 'Network Connectivity';
     isProgram: 'Program Status';
@@ -72,6 +72,8 @@ declare const messages: {
     'license-popup-content': 'Would you like to request a license {state, select, true {release} other {issuance}}?';
     yes: 'YES';
     no: 'NO';
+    on: 'ON';
+    off: 'OFF';
   };
 };
 export default messages;
