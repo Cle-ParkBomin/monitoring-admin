@@ -2,20 +2,24 @@ import Tooltip from '@/components/modal/Tooltip';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 interface SliderProps {
-  value: number;
-  onChange: (value: number) => void;
+  amount: number;
+  total: number;
+  onChange?: (amount: number) => void;
   isNumber?: boolean;
   isDisabled?: boolean;
+  tooltipText?: string;
 }
 
 export default function Slider({
-  value,
+  amount,
+  total,
   onChange,
   isNumber = false,
   isDisabled = false,
+  tooltipText,
 }: SliderProps) {
-  const sliderSteps = [0, 25, 50, 75, 100];
   const sliderRef = useRef<HTMLDivElement>(null);
+  const percent = (amount / total) * 100;
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -58,6 +62,15 @@ export default function Slider({
     calculatePercent(e.clientX);
   };
 
+  function getSliderSteps(max: number, steps: number): number[] {
+    const result: number[] = [];
+    for (let i = 0; i < steps - 1; i++) {
+      result.push(Math.round((max / (steps - 1)) * i));
+    }
+    result.push(max);
+    return result;
+  }
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       // 드래그 중 마우스 위치 기준으로 퍼센트 계산
@@ -89,19 +102,19 @@ export default function Slider({
       {/* slider bar */}
       <div
         className={`h-1.5 rounded-full ${variantStyle[variantKey].fill}`}
-        style={{ width: `${value}%` }}
+        style={{ width: `${percent}%` }}
       />
       <div className={`h-1.5 flex-1 rounded-full ${variantStyle[variantKey].unfill}`} />
       {/* slider number */}
       {isNumber &&
-        sliderSteps.map((item) => (
+        getSliderSteps(total, 5).map((item) => (
           <div
             key={`slider_${item}`}
             className='absolute top-0 flex flex-col gap-1'
-            style={{ left: `calc(${item}%` }}
+            style={{ left: `calc(${(item / total) * 100}%` }}
           >
             <div className={`h-1.5 w-0.5 ${![0, 100].includes(item) && 'bg-grey-400'}`} />
-            <span className='-translate-x-1/2 transform text-12 leading-16 text-grey-500'>
+            <span className='text-12 leading-16 text-grey-500 -translate-x-1/2 transform'>
               {item}
             </span>
           </div>
@@ -109,13 +122,13 @@ export default function Slider({
       {/* slider handler */}
       <div
         className='absolute top-1/2 z-10 flex -translate-y-1/2 transform'
-        style={{ left: `calc(${value}% - 1rem)` }}
+        style={{ left: `calc(${percent}% - 1rem)` }}
       >
         <div className='relative flex justify-center'>
           {/* tooltip */}
           {isOpen && (
             <div className='absolute bottom-7'>
-              <Tooltip detail={`${value}%`} />
+              <Tooltip detail={tooltipText ?? `${percent}%`} />
             </div>
           )}
           <button
