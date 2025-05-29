@@ -1,25 +1,25 @@
 import { FaCheck } from 'react-icons/fa6';
 
-export interface SegmentControlType {
-  key?: number;
-  value?: string;
+export interface SegmentControlType<T extends string> {
+  key: number;
+  value: T;
 }
 
-interface SegmentControlProps {
-  value: SegmentControlType;
-  valueList: SegmentControlType[];
-  onClick?: (value: SegmentControlType) => void;
+interface SegmentControlProps<T extends string> {
+  value: SegmentControlType<T>;
+  valueList: SegmentControlType<T>[];
+  onClick?: (value: SegmentControlType<T>) => void;
   isIcon?: boolean;
   isDisabled?: boolean;
 }
 
-export default function SegmentControl({
+export default function SegmentControl<T extends string>({
   value,
   valueList,
   onClick,
   isIcon = false,
   isDisabled = false,
-}: SegmentControlProps) {
+}: SegmentControlProps<T>) {
   const variantStyle = {
     check: { wrapper: 'border-grey-300 bg-grey-200', button: 'cursor-pointer bg-grey-0' },
     uncheck: {

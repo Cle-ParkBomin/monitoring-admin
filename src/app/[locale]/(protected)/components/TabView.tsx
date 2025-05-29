@@ -4,14 +4,14 @@ import Tab, { TabType } from '@/components/tab/Tab';
 import { useState } from 'react';
 
 export default function TabView() {
-  const valueList: TabType[] = [
+  const valueList: TabType<string>[] = [
     { key: 1, value: 'Red' },
     { key: 2, value: 'Orange' },
     { key: 3, value: 'Yellow' },
     { key: 4, value: 'Green' },
     { key: 5, value: 'Blue' },
   ];
-  const [value, setValue] = useState<TabType>(valueList[0]);
+  const [value, setValue] = useState<TabType<string>>(valueList[0]);
 
   return (
     <div className='flex flex-col gap-4'>
@@ -22,12 +22,12 @@ export default function TabView() {
           <ScrollNavigation
             value={value}
             valueList={valueList}
-            onClick={(item: TabType) => setValue(item)}
+            onClick={(item: TabType<string>) => setValue(item)}
           />
           <ScrollNavigation
             value={value}
             valueList={valueList}
-            onClick={(item: TabType) => setValue(item)}
+            onClick={(item: TabType<string>) => setValue(item)}
             align='right'
           />
         </div>
@@ -35,7 +35,7 @@ export default function TabView() {
           <SegmentControl
             value={value}
             valueList={valueList}
-            onClick={(item: TabType) => setValue(item)}
+            onClick={(item: TabType<string>) => setValue(item)}
           />
           <SegmentControl value={value} valueList={valueList} isDisabled />
         </div>
@@ -43,13 +43,17 @@ export default function TabView() {
           <SegmentControl
             value={value}
             valueList={valueList}
-            onClick={(item: TabType) => setValue(item)}
+            onClick={(item: TabType<string>) => setValue(item)}
             isIcon
           />
           <SegmentControl value={value} valueList={valueList} isIcon isDisabled />
         </div>
         <div className='flex flex-1 gap-4'>
-          <Tab value={value} valueList={valueList} onClick={(item: TabType) => setValue(item)} />
+          <Tab
+            value={value}
+            valueList={valueList}
+            onClick={(item: TabType<string>) => setValue(item)}
+          />
         </div>
       </div>
     </div>

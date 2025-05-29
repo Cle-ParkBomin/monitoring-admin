@@ -1,20 +1,20 @@
-export interface ScrollNavigationType {
-  key?: number;
-  value?: string;
+export interface ScrollNavigationType<T extends string> {
+  key: number;
+  value: T;
 }
-interface ScrollNavigationProps {
-  value: ScrollNavigationType;
-  valueList: ScrollNavigationType[];
-  onClick?: (value: ScrollNavigationType) => void;
+interface ScrollNavigationProps<T extends string> {
+  value: ScrollNavigationType<T>;
+  valueList: ScrollNavigationType<T>[];
+  onClick?: (value: ScrollNavigationType<T>) => void;
   align?: 'left' | 'right';
 }
 
-export default function ScrollNavigation({
+export default function ScrollNavigation<T extends string>({
   value,
   valueList,
   onClick,
   align = 'left',
-}: ScrollNavigationProps) {
+}: ScrollNavigationProps<T>) {
   const variantStyle = {
     check: 'text-grey-950 underline',
     uncheck: 'text-grey-500',
