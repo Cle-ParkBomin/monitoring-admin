@@ -2,7 +2,7 @@ import { getObjectEntries } from '@/utils/object';
 import React, { ReactNode } from 'react';
 
 interface ObjectTableProps<T extends object> {
-  title: string;
+  title?: string;
   data: T;
   renderKey: (key: keyof T) => ReactNode;
   renderValue: (key: keyof T, value: T[keyof T]) => ReactNode;
@@ -28,10 +28,12 @@ export default function ObjectTable<T extends object>({
   const chunkedData = chunk(arrayData, rowCount);
 
   return (
-    <table>
-      <caption className='text-16 leading-24 font-700 text-grey-800 mb-5 text-left'>
-        {title}
-      </caption>
+    <table className='w-full'>
+      {title && (
+        <caption className='text-16 leading-24 font-700 text-grey-800 mb-2 text-left'>
+          {title}
+        </caption>
+      )}
 
       <tbody className='border-grey-300 border'>
         {chunkedData.map((rowItems, rowIndex) => {

@@ -27,6 +27,21 @@ declare const messages: {
     deployer: 'Deployer';
     updateAt: 'Updated Date';
     hash: 'Hash';
+    cpu: 'CPU';
+    gpu: 'GPU';
+    temp: 'Temp';
+    ram: 'RAM';
+    storage: 'Storage';
+    network: 'Network';
+    name: 'Device Name';
+    usage: 'Usage';
+    current: 'Current';
+    average: 'Average';
+    lowest: 'Lowest';
+    highest: 'Highest';
+    send: 'Send';
+    receive: 'Receive';
+    total: 'Total';
   };
   table: {
     search: 'Search';
@@ -72,8 +87,7 @@ declare const messages: {
     'license-popup-content': 'Would you like to request a license {state, select, true {release} other {issuance}}?';
     yes: 'YES';
     no: 'NO';
-    on: 'ON';
-    off: 'OFF';
+    'on&off': '{state, select, true {ON} other {OFF}}';
   };
 };
 export default messages;

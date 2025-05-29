@@ -16,14 +16,29 @@
     "activeServer": "연결된 서버 주소",
     "isLicense": "라이선스 여부",
     "isNetwork": "네트워크 접속 여부",
-    "isProgram": "프로그램 종료 여부",
+    "isProgram": "프로그램 동작 여부",
     "launcherUpdateAt": "런처 업데이트 일시",
     "fileName": "파일명",
     "fileRelPath": "파일 상대 경로",
     "buildVersion": "빌드 버전",
     "deployer": "배포자",
     "updateAt": "업데이트 일시",
-    "hash": "해시 값"
+    "hash": "해시 값",
+    "cpu": "CPU",
+    "gpu": "GPU",
+    "temp": "온도",
+    "ram": "RAM",
+    "storage": "스토리지",
+    "network": "네트워크",
+    "name": "장치명",
+    "usage": "사용량",
+    "current": "최근",
+    "average": "평균",
+    "lowest": "최저",
+    "highest": "최고",
+    "send": "송신량",
+    "receive": "수신량",
+    "total": "총량"
   },
   "modal": {
     "cancelLabel": "취소",
@@ -69,7 +84,6 @@
     "license-popup-content": "라이선스 {state, select, true {해제} other {발급}} 요청하시겠습니까?",
     "yes": "네",
     "no": "아니오",
-    "on": "ON",
-    "off": "OFF"
+    "on&off": "{state, select, true {켜짐} other {꺼짐}}"
   }
 }
