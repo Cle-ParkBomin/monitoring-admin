@@ -30,7 +30,7 @@ export default function ProgramAccordion({ list, isAllOpen }: ProgramAccordianPr
             />
           </li>
           <li className='text-14 leading-16 flex flex-1 items-center text-left'>{item.name}</li>
-          <li className='text-14 leading-16 flex flex-1 items-center text-left'>{item.version}</li>
+          <li className='text-14 leading-16 flex items-center text-left'>{item.version}</li>
         </ul>
       ))}
 

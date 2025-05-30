@@ -33,7 +33,7 @@ export default function Filter({ filterBody, refetchData }: FilterProps) {
       </div>
       {isOpen && (
         <div
-          className='top-15 border-grey-300 bg-grey-0 text-14 font-500 shadow-strong absolute right-0 w-max rounded-sm border'
+          className='top-15 border-grey-300 bg-grey-0 text-14 font-500 shadow-strong absolute right-0 z-10 w-max rounded-sm border'
           ref={filterRef}
         >
           <p className='border-grey-300 text-grey-700 border-b p-2'>{t('filter')}</p>

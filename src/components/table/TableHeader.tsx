@@ -8,7 +8,7 @@ interface TableHeaderProps<T extends object> {
 
 export default function TableHeader<T extends object>({ data, renderHeader }: TableHeaderProps<T>) {
   return (
-    <thead className='bg-grey-50 z-19 border-grey-300 sticky top-0 border-b'>
+    <thead className='bg-grey-50 border-grey-300 z-5 sticky top-0 border-b'>
       <tr>
         {getObjectKeys(data[0]).map((key) => (
           <th

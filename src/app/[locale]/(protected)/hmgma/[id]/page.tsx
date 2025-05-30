@@ -8,7 +8,7 @@ import StorageInfo from '@/app/[locale]/(protected)/hmgma/[id]/StorageInfo';
 import { detailData } from '@/dummy/HMGMA';
 import { useParams } from 'next/navigation';
 
-export default function HMGMAIdPage() {
+export default function HMGMADetailPage() {
   const params = useParams();
 
   return (

@@ -4,6 +4,7 @@ interface TooltipProps {
   titleStyle?: string;
   detailStyle?: string;
   style?: 'dark' | 'light';
+  isTriangle?: boolean;
 }
 
 export default function Tooltip({
@@ -12,6 +13,7 @@ export default function Tooltip({
   titleStyle = 'text-12 leading-16',
   detailStyle = 'text-14 font-700 leading-20',
   style = 'dark',
+  isTriangle = true,
 }: TooltipProps) {
   const variantStyle = {
     dark: {
@@ -31,24 +33,26 @@ export default function Tooltip({
   return (
     <div className='flex flex-col items-center'>
       <div
-        className={`flex max-h-52 max-w-52 flex-col gap-1 overflow-auto rounded-lg px-3 py-2 shadow-strong ${variantStyle[style].wrapper}`}
+        className={`shadow-strong flex max-h-52 max-w-52 flex-col gap-1 overflow-auto rounded-lg px-3 py-2 ${variantStyle[style].wrapper}`}
       >
         {title && (
           <p
-            className={`break-words whitespace-pre-wrap ${titleStyle} ${variantStyle[style].title}`}
+            className={`whitespace-pre-wrap break-words ${titleStyle} ${variantStyle[style].title}`}
           >
             {title}
           </p>
         )}
         <p
-          className={`break-words whitespace-pre-wrap ${detailStyle} ${variantStyle[style].detail}`}
+          className={`whitespace-pre-wrap break-words ${detailStyle} ${variantStyle[style].detail}`}
         >
           {detail}
         </p>
       </div>
-      <div
-        className={`h-0 w-0 border-t-[12px] border-r-[8px] border-b-0 border-l-[8px] border-solid border-r-transparent border-b-transparent border-l-transparent shadow-strong ${variantStyle[style].triangle}`}
-      />
+      {isTriangle && (
+        <div
+          className={`shadow-strong h-0 w-0 border-b-0 border-l-[8px] border-r-[8px] border-t-[12px] border-solid border-b-transparent border-l-transparent border-r-transparent ${variantStyle[style].triangle}`}
+        />
+      )}
     </div>
   );
 }

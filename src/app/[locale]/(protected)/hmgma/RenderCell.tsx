@@ -6,22 +6,31 @@ import CheckBox from '@/components/radio/CheckBox';
 import { enumColors, listType } from '@/dummy/HMGMA';
 import useClipboard from '@/hooks/useClipboard';
 import { popupAtom, toastAtom } from '@/jotai/modalAtoms';
-import { useAtom } from 'jotai';
+import { SetStateAction, useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { Dispatch } from 'react';
 import { IoWarning } from 'react-icons/io5';
 
 interface RenderCellProps {
   row: listType;
   rowKey: keyof listType;
   isOpenProgram: boolean;
+  serialNumbers: string[];
+  setSerialNumbers: Dispatch<SetStateAction<string[]>>;
 }
 
-export default function RenderCell({ row, rowKey, isOpenProgram }: RenderCellProps) {
+export default function RenderCell({
+  row,
+  rowKey,
+  isOpenProgram,
+  serialNumbers,
+  setSerialNumbers,
+}: RenderCellProps) {
   const t = useTranslations('mockup');
   const tHMGMA = useTranslations('hmgma');
-
   const router = useRouter();
+
   const copyToClipboard = useClipboard();
 
   const [, setPopup] = useAtom(popupAtom);
@@ -30,12 +39,24 @@ export default function RenderCell({ row, rowKey, isOpenProgram }: RenderCellPro
   switch (rowKey) {
     case 'serialNumber':
       return (
-        <LinkButton
-          value={row[rowKey].toString()}
-          onClick={() => {
-            router.push(`/hmgma/${row[rowKey]}`);
-          }}
-        />
+        <div className='flex items-center gap-2'>
+          <CheckBox
+            isCheck={serialNumbers.includes(row[rowKey])}
+            onClick={() =>
+              setSerialNumbers((prev) =>
+                prev.includes(row[rowKey])
+                  ? prev.filter((item) => item !== row[rowKey])
+                  : [...prev, row[rowKey]],
+              )
+            }
+          />
+          <LinkButton
+            value={row[rowKey].toString()}
+            onClick={() => {
+              router.push(`/hmgma/${row[rowKey]}`);
+            }}
+          />
+        </div>
       );
 
     case 'line':

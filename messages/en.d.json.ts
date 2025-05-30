@@ -96,6 +96,9 @@ declare const messages: {
     'program-title': 'Program Information';
     'driver-title': 'Driver Information';
     'program-open-button': '{state, select, true {Close} other {Open}} All Programs';
+    'compare-modal-open-button': 'Compare PC';
+    'error-compare-modal': 'Please select at least two PC serial numbers to compare.';
+    'esc-close-context': 'Pressing the ESC key will close the window.';
   };
 };
 export default messages;

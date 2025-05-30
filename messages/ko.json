@@ -92,6 +92,9 @@
     "on&off": "{state, select, true {켜짐} other {꺼짐}}",
     "program-title": "프로그램 정보",
     "driver-title": "드라이버 정보",
-    "program-open-button": "프로그램 정보 모두 {state, select, true {닫기} other {열기}}"
+    "program-open-button": "프로그램 정보 모두 {state, select, true {닫기} other {열기}}",
+    "compare-modal-open-button": "PC 비교하기",
+    "error-compare-modal": "비교할 PC의 시리얼 번호를 두 개 이상 선택해 주세요.",
+    "esc-close-context": "ESC 키 누르면, 창이 닫힙니다."
   }
 }

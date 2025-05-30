@@ -29,7 +29,7 @@ export default function ScrollTable<T extends object>({
     );
 
   return (
-    <div className='flex flex-1 flex-col'>
+    <div className='flex flex-col'>
       <div className='flex flex-wrap items-center justify-between text-left'>
         <h3 className='text-grey-800'>{title}</h3>
         <div className='flex gap-2'>
