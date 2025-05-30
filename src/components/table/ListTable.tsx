@@ -1,8 +1,8 @@
 import Dropdown from '@/components/button/Dropdown';
 import Filter from '@/components/table/Filter';
-import ListTableBody from '@/components/table/ListTableBody';
 import Pagination from '@/components/table/Pagination';
 import Search from '@/components/table/Search';
+import TableBody from '@/components/table/TableBody';
 import TableHeader from '@/components/table/TableHeader';
 import { ReactNode, useState } from 'react';
 
@@ -66,7 +66,7 @@ export default function ListTable<T extends object>({
       >
         <table className='w-full px-1 text-left'>
           <TableHeader data={data} renderHeader={renderHeader} />
-          <ListTableBody data={data} renderCell={renderCell} />
+          <TableBody data={data} renderCell={renderCell} />
         </table>
       </div>
 

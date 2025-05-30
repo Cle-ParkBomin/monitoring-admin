@@ -89,26 +89,26 @@ export default function DriverInfo({ data }: DriverInfoProps) {
 
         case 'name':
           return (
-            <>
+            <div className='flex items-center gap-1'>
               <span>{t('driver-name')}</span>
               <HiOutlineSwitchVertical
                 size={16}
                 className='shrink-0 cursor-pointer'
                 onClick={() => refetchData()}
               />
-            </>
+            </div>
           );
 
         default:
           return (
-            <>
+            <div className='flex items-center gap-1'>
               <span>{t(`${key}`)}</span>
               <HiOutlineSwitchVertical
                 size={16}
                 className='shrink-0 cursor-pointer'
                 onClick={() => refetchData()}
               />
-            </>
+            </div>
           );
       }
     }

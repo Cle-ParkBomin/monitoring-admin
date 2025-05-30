@@ -1,6 +1,6 @@
 import Filter from '@/components/table/Filter';
-import ScrollTableBody from '@/components/table/ScrollTableBody';
 import Search from '@/components/table/Search';
+import TableBody from '@/components/table/TableBody';
 import TableHeader from '@/components/table/TableHeader';
 import { ReactNode } from 'react';
 
@@ -38,10 +38,12 @@ export default function ScrollTable<T extends object>({
         </div>
       </div>
 
-      <table className='flex flex-col text-left'>
-        <TableHeader data={data} renderHeader={renderHeader} />
-        <ScrollTableBody data={data} renderCell={renderCell} />
-      </table>
+      <div className='border-grey-300 max-h-60 overflow-auto border'>
+        <table className='w-full px-1 text-left'>
+          <TableHeader data={data} renderHeader={renderHeader} />
+          <TableBody data={data} renderCell={renderCell} />
+        </table>
+      </div>
     </div>
   );
 }
