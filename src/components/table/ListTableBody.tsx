@@ -13,19 +13,16 @@ export default function ListTableBody<T extends object>({
   const keys = getObjectKeys(data[0]);
 
   return (
-    <tbody
-      className='border-grey-300 leading-24 overflow-auto border'
-      style={{ maxHeight: `calc(100vh - 480px)` }}
-    >
+    <tbody className='leading-24'>
       {data.map((row, index) => (
         <tr
-          className={`border-grey-200 flex ${index !== data.length - 1 && 'border-b'}`}
+          className={`border-grey-200 ${index !== data.length - 1 && 'border-b'}`}
           key={`table_row_${index}`}
         >
           {keys.map((key) => (
             <td
               key={`${String(key)}_${String(row[key])}`}
-              className='flex flex-1 items-center px-3 py-2.5'
+              className='h-full whitespace-pre-line break-keep px-3 py-2.5 align-top'
             >
               {renderCell(row, key)}
             </td>

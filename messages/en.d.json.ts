@@ -95,6 +95,7 @@ declare const messages: {
     'on&off': '{state, select, true {ON} other {OFF}}';
     'program-title': 'Program Information';
     'driver-title': 'Driver Information';
+    'program-open-button': '{state, select, true {Close} other {Open}} All Programs';
   };
 };
 export default messages;

@@ -8,12 +8,12 @@ interface TableHeaderProps<T extends object> {
 
 export default function TableHeader<T extends object>({ data, renderHeader }: TableHeaderProps<T>) {
   return (
-    <thead className='border-grey-300 bg-grey-50 justify-between border border-b-0'>
-      <tr className='flex flex-1 justify-between'>
+    <thead className='bg-grey-50 z-19 border-grey-300 sticky top-0 border-b'>
+      <tr>
         {getObjectKeys(data[0]).map((key) => (
           <th
             key={`table_header_${key.toString()}`}
-            className='text-14 leading-20 text-grey-700 font-400 flex flex-1 items-center gap-1 whitespace-pre-line break-keep px-3 py-2.5'
+            className='text-14 leading-20 text-grey-700 font-400 gap-1 whitespace-pre-line break-keep px-3 py-2.5'
           >
             {renderHeader(key)}
           </th>

@@ -1,12 +1,12 @@
 'use client';
 
+import DefaultInfo from '@/app/[locale]/(protected)/hmgma/[id]/DefaultInfo';
+import DriverInfo from '@/app/[locale]/(protected)/hmgma/[id]/DriverInfo';
+import PCStatus from '@/app/[locale]/(protected)/hmgma/[id]/PCStatus';
+import ProgramInfo from '@/app/[locale]/(protected)/hmgma/[id]/ProgramInfo';
+import StorageInfo from '@/app/[locale]/(protected)/hmgma/[id]/StorageInfo';
 import { detailData } from '@/dummy/HMGMA';
 import { useParams } from 'next/navigation';
-import DefaultInfo from './DefaultInfo';
-import DriverInfo from './DriverInfo';
-import PCStatus from './PCStatus';
-import ProgramInfo from './ProgramInfo';
-import StorageInfo from './StorageInfo';
 
 export default function HMGMAIdPage() {
   const params = useParams();

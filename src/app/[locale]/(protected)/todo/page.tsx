@@ -50,6 +50,7 @@ const list_before = [
     content: '사용자 설정: 자주 사용하는 필터, 브라우저 새로고침 시간 설정, 북마크',
   },
   { isCheck: false, part: 'Back-End', content: '중복 정렬 기능 (monday)' },
+  { isCheck: false, part: 'Back-End', content: '권한에 따른 pc 관리: 수정/삭제/추가' },
 ];
 
 // 런처 이후

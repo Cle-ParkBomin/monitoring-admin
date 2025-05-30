@@ -1,8 +1,8 @@
 import Filter from '@/components/table/Filter';
+import ScrollTableBody from '@/components/table/ScrollTableBody';
 import Search from '@/components/table/Search';
 import TableHeader from '@/components/table/TableHeader';
 import { ReactNode } from 'react';
-import ScrollTableBody from './ScrollTableBody';
 
 interface ScrollTableProps<T extends object> {
   title: string;

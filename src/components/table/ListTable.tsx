@@ -43,25 +43,32 @@ export default function ListTable<T extends object>({
           <Filter filterBody={filterBody} refetchData={refetchData} />
         </div>
       </div>
-      <div className='mb-5 flex items-center gap-1'>
-        <div className='w-20'>
-          <Dropdown
-            value={pageSize}
-            valueList={PAGE_SIZE_LIST}
-            onClick={(value) => {
-              refetchData();
-              setPageSize(value);
-            }}
-            size='s'
-          />
+      <div className='flex justify-between'>
+        <div className='mb-5 flex items-center gap-1'>
+          <div className='w-20'>
+            <Dropdown
+              value={pageSize}
+              valueList={PAGE_SIZE_LIST}
+              onClick={(value) => {
+                refetchData();
+                setPageSize(value);
+              }}
+              size='s'
+            />
+          </div>
+          <p>개 씩</p>
         </div>
-        <p>개 씩</p>
       </div>
 
-      <table className='flex flex-col px-1 text-left'>
-        <TableHeader data={data} renderHeader={renderHeader} />
-        <ListTableBody data={data} renderCell={renderCell} />
-      </table>
+      <div
+        className='border-grey-300 overflow-y-auto border'
+        style={{ maxHeight: `calc(100vh - 480px)` }}
+      >
+        <table className='w-full px-1 text-left'>
+          <TableHeader data={data} renderHeader={renderHeader} />
+          <ListTableBody data={data} renderCell={renderCell} />
+        </table>
+      </div>
 
       <Pagination selectPage={selectPage} setSelectPage={setSelectPage} totalPages={1} />
     </div>
