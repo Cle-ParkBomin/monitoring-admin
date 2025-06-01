@@ -10,9 +10,9 @@ export default function TableHeader<T extends object>({ data, renderHeader }: Ta
   return (
     <thead className='bg-grey-50 border-grey-300 z-5 sticky top-0 border-b'>
       <tr>
-        {getObjectKeys(data[0]).map((key) => (
+        {getObjectKeys(data[0] ?? {}).map((key) => (
           <th
-            key={`table_header_${key.toString()}`}
+            key={`table_header_${String(key)}`}
             className='text-14 leading-20 text-grey-700 font-400 gap-1 whitespace-pre-line break-keep px-3 py-2.5'
           >
             {renderHeader(key)}

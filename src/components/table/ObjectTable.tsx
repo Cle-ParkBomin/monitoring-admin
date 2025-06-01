@@ -41,7 +41,7 @@ export default function ObjectTable<T extends object>({
 
           return (
             <tr
-              key={`object_table_row_${rowItems[0].toString()}`}
+              key={`object_table_row_${rowItems[0]?.toString()}`}
               className={` ${rowIndex !== chunkedData.length - 1 && 'border-grey-200 border-b'}`}
             >
               {rowItems.map(([key, value], index) => (

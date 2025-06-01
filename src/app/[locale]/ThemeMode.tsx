@@ -17,7 +17,7 @@ export default function ThemeMode() {
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    localStorage.theme = isDark ? 'light' : 'dark';
+    localStorage['theme'] = isDark ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
   };
 

@@ -51,6 +51,7 @@ const list_before = [
   },
   { isCheck: false, part: 'Back-End', content: '중복 정렬 기능 (monday)' },
   { isCheck: false, part: 'Back-End', content: '권한에 따른 pc 관리: 수정/삭제/추가' },
+  { isCheck: false, part: 'Back-End', content: '모노레포 - FE/BE 합치기' },
 ];
 
 // 런처 이후

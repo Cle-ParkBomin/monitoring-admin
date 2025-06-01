@@ -14,7 +14,7 @@ export default function HMGMADetailPage() {
   return (
     <div className='flex flex-1 flex-col gap-10'>
       <h1 className='flex gap-2'>
-        HMGMA PC <p className='text-primary-500'>#{params.id}</p>
+        HMGMA PC <p className='text-primary-500'>#{params['id']}</p>
       </h1>
       <DefaultInfo data={detailData.default} />
       <ProgramInfo data={detailData.program} />

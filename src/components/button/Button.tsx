@@ -1,7 +1,6 @@
 import LoadingIcon from '@/components/svg/LoadingIcon';
-import React, { JSX, MouseEventHandler } from 'react';
+import React, { CSSProperties, JSX, MouseEventHandler } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
-
 interface ButtonProps {
   value: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -51,7 +50,7 @@ export default function Button({
   };
   const variantKey = isDisabled ? 'disabled' : style;
 
-  const getIconStyle = () => {
+  const getIconStyle = (): CSSProperties => {
     return { width: sizeStyle[size].iconSize, height: sizeStyle[size].iconSize };
   };
   const styledIcon = icon

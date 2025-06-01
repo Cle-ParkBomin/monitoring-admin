@@ -11,7 +11,7 @@ export default function TabView() {
     { key: 4, value: 'Green' },
     { key: 5, value: 'Blue' },
   ];
-  const [value, setValue] = useState<TabType<string>>(valueList[0]);
+  const [value, setValue] = useState<TabType<string>>(valueList[0] ?? { key: 1, value: 'Red' });
 
   return (
     <div className='flex flex-col gap-4'>

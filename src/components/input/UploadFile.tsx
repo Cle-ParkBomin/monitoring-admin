@@ -70,7 +70,7 @@ export default function UploadFile({
 
     // 선택한 파일명 업데이트
     const files = e.target.files;
-    if (files && files.length > 0) {
+    if (files && files.length > 0 && files[0]) {
       const fileNames =
         files.length === 1 ? files[0].name : `${files[0].name} 외 ${files.length - 1}개`;
       setFileName(fileNames);
@@ -105,7 +105,7 @@ export default function UploadFile({
     <div className='flex flex-1 flex-col gap-1'>
       {!isUploading ? (
         <div
-          className={`flex items-center gap-1 rounded-sm border-1 ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
+          className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
         >
           <input
             className='hidden'
@@ -116,7 +116,7 @@ export default function UploadFile({
             onChange={handleFileChange}
           />
           <input
-            className={`flex flex-1 text-16 caret-blue-500 outline-0 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${variantStyle[variantKey].input}`}
+            className={`text-16 flex flex-1 caret-blue-500 outline-0 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${variantStyle[variantKey].input}`}
             value={fileName}
             placeholder='Upload file'
             readOnly
@@ -143,15 +143,15 @@ export default function UploadFile({
         </div>
       ) : (
         <div
-          className={`flex items-center gap-1 rounded-sm border-1 border-grey-400 bg-grey-0 ${sizeStyle[size]}`}
+          className={`border-1 border-grey-400 bg-grey-0 flex items-center gap-1 rounded-sm ${sizeStyle[size]}`}
         >
           <LoadingIcon />
-          <p className='flex flex-1 text-16 text-grey-950 caret-blue-500 outline-0'>Uploading...</p>
+          <p className='text-16 text-grey-950 flex flex-1 caret-blue-500 outline-0'>Uploading...</p>
           <IoMdClose cursor='pointer' color={grey500} size={20} onClick={handleCancel} />
         </div>
       )}
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (

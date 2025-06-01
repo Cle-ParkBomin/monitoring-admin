@@ -7,7 +7,7 @@ interface TableBodyProps<T extends object> {
 }
 
 export default function TableBody<T extends object>({ data, renderCell }: TableBodyProps<T>) {
-  const keys = getObjectKeys(data[0]);
+  const keys = getObjectKeys(data[0] ?? {});
 
   return (
     <tbody className='leading-24'>

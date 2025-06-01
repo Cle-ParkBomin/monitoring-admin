@@ -5,7 +5,7 @@ export type BadgeColor = 'yellow' | 'blue' | 'green' | 'purple' | 'grey' | 'red'
 interface BadgeProps {
   value: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  color?: BadgeColor;
+  color?: BadgeColor | undefined;
   size?: 'l' | 'm' | 's';
 }
 

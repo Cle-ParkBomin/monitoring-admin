@@ -26,8 +26,8 @@ export default function ProgramInfo({ data }: ProgramInfoProps) {
       from: new Date(),
       to: new Date(),
     },
-    name: data[0].name,
-    version: data[0].version,
+    name: data[0]?.name ?? '',
+    version: data[0]?.version ?? '',
   });
 
   const refetchData = () => {
