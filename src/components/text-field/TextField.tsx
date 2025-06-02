@@ -52,13 +52,13 @@ export default function TextField({
 
   return (
     <div
-      className={`flex min-h-11 items-center justify-center border-b-1 border-b-grey-200 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+      className={`border-b-1 border-b-grey-200 flex min-h-11 items-center justify-center px-4 py-3 ${variantStyle[variantKey].wrapper}`}
     >
       {isLoading ? (
         <LoadingIcon />
       ) : (
         <textarea
-          className={`flex flex-1 resize-none caret-blue-500 outline-none placeholder:text-grey-500 ${variantStyle[variantKey].textarea} ${fontStyle[size]}`}
+          className={`placeholder:text-grey-500 flex flex-1 resize-none caret-blue-500 outline-none ${variantStyle[variantKey].textarea} ${fontStyle[size]}`}
           value={value}
           onChange={handleChange}
           placeholder={placeholder}

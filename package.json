@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx, md}\"",
     "prepare": "husky",
     "i18n-check": "i18n-check --locales messages --source en --format icu --only missingKeys invalidKeys unused undefined --unused src --reporter console"
   },
